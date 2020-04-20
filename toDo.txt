@@ -1,0 +1,10 @@
+DATI:
+generatore ottima di traiettoria
+posizione degli avversari
+
+
+PROBLEMA:
+strategia di gara per vincere (contro avversari)
+
+DA FARE:
+analisi di letteratura in cui formalizziamo meglio il problema
