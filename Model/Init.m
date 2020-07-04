@@ -55,5 +55,9 @@ C_fuel = 0.0000003;
 cr = 0.003; %rolling resistence coeff
 
 %tyre wears param
-K_wear = 0.000000001;
-H = 60;
+K_wear = 0.000000001; %-
+H = 60; %N/m^2
+TyreContactArea = 0.04; %m^2
+TyreRadius = 0.17; %m
+TyreArea = TyreRadius * TyreRadius * pi; %m^2 
+TyreWidth = 0.2; %m

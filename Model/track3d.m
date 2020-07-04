@@ -77,16 +77,16 @@ yC4 = yC4 + curveCoord;
 zC4 = zeros(size(xC4, 1), size(xC4, 2));
 
 for i = 1:1:size(zC1, 1)-1
-    zC1(i+1,:) = zC1(i,:)+(curveWidth/4)*sin(i*bankingAngle);
+    zC1(i+1,:) = zC1(i,:)+(curveWidth/4)*sin(bankingAngle);
 end
 for i = 1:1:size(zC2, 1)-1
-    zC2(i+1,:) = zC2(i,:)+(curveWidth/4)*sin(i*bankingAngle);
+    zC2(i+1,:) = zC2(i,:)+(curveWidth/4)*sin(bankingAngle);
 end
 for i = 1:1:size(zC3, 1)-1
-    zC3(i+1,:) = zC3(i,:)+(curveWidth/4)*sin(i*bankingAngle);
+    zC3(i+1,:) = zC3(i,:)+(curveWidth/4)*sin(bankingAngle);
 end
 for i = 1:1:size(zC4, 1)-1
-    zC4(i+1,:) = zC4(i,:)+(curveWidth/4)*sin(i*bankingAngle);
+    zC4(i+1,:) = zC4(i,:)+(curveWidth/4)*sin(bankingAngle);
 end
 
 % rescale straights by z offset, adjust starting of bank
@@ -121,7 +121,7 @@ surf(xC4, yC4, zC4);
 
 xlim([-900, 900]);
 ylim([-100, 800]);
-zlim([0, 400]);
+zlim([0, 50]);
 xlabel('X [m]');
 ylabel('Y [m]');
 zlabel('Z [m]');
