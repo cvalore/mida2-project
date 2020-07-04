@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{mathtools}
+
+\title{\textbf{Dynamic bycicle model}}
+\author{Alessio Russo, Carmelo Valore}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Simple dynamic model}
+
+//TODO Inserire figura
+
+\begin{equation}
+\begin{aligned}
+m_T \ddot{x} = F_{xF} cos(\psi+\delta) + F_{xR} cos(\psi) - F_{yF} sin(\psi+\delta) - F_{yR} sin(\psi) \\
+m_T \ddot{y} = F_{xF} sin(\psi+\delta) + F_{xR} sin(\psi) + F_{yF} cos(\psi+\delta) + F_{yR} cos(\psi) \\
+I_T \ddot{\psi} = F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b\\\\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\alpha_F = arctan(\frac{\dot{y}+a\dot{\psi}cos(\psi)}{\dot{x}-a\dot{\psi}sin(\psi)}) - (\delta + \psi)\\
+\alpha_R = arctan(\frac{\dot{y}-b\dot{\psi}cos(\psi)}{\dot{x}+b\dot{\psi}sin(\psi)}) - \psi\\\\
+\end{aligned}
+\end{equation}
+
+At first, as state vector this has been used
+
+\begin{equation}
+\begin{aligned}
+z1 = x\\
+z2 = y\\
+z3 = \psi\\
+z4 = \dot{x}\\
+z5 = \dot{y}\\
+z6 = \dot{\psi}\\\\
+\end{aligned}
+\end{equation}
+
+So that
+
+\begin{equation}
+\begin{aligned}
+\dot{z_1} = z_4 \\
+\dot{z_2} = z_5 \\
+\dot{z_3} = z_6 \\
+\dot{z_4} = \frac{F_{xF} cos(z_3+\delta) + F_{xR} cos(z_3) - F_{yF} sin(z_3+\delta) - F_{yR} sin(z_3)}{m_T} \\
+\dot{z_5} = \frac{F_{xF} sin(z_3+\delta) + F_{xR} sin(z_3) + F_{yF} cos(z_3+\delta) + F_{yR} cos(z_3)}{m_T} \\
+\dot{z_6} = \frac{F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b}{I_T} \\\\
+\end{aligned}
+\end{equation}
+
+With slip angles
+
+\begin{equation}
+\begin{aligned}
+\alpha_F = arctan(\frac{z_5+a z_6 cos(z_3)}{z_4-a z_6 sin(z_3)}) - (\delta + z_3)\\
+\alpha_R = arctan(\frac{z_5-b z_6 cos(z_3)}{z_4+b z_6 sin(z_3)}) - z_3\\\\
+\end{aligned}
+\end{equation}
+
+Now instead of using $\dot{x}$ and $\dot{y}$, $v_T$ and $\alpha_T$ have been used. The trasformations are the following: 
+
+\begin{equation}
+\begin{aligned}
+\dot{x} = v_T cos(\psi + \alpha_T)\\
+\dot{y} = v_T sin(\psi + \alpha_T)\\\\
+\ddot{x} = \dot{v_T} cos(\psi + \alpha_T) - v_T (\dot{\psi} + \dot{\alpha_T}) sin(\psi + \alpha_T)\\
+\ddot{y} = \dot{v_T} sin(\psi + \alpha_T) + v_T (\dot{\psi} + \dot{\alpha_T}) cos(\psi + \alpha_T)\\\\
+\end{aligned}
+\end{equation}
+
+Substituting and simplyfing with the help of Matlab
+
+\begin{equation}
+\begin{aligned}
+\dot{v_T} = \frac{F_{xF} cos(\alpha_T-\delta) + F_{xR} cos(\alpha_T) + F_{yF} sin(\alpha_T-\delta) + F_{yR} sin(\alpha_T)}{m_T} \\
+\dot{\alpha_T} = \frac{-F_{xF} sin(\alpha_T-\delta) - F_{xR} sin(\alpha_T) + F_{yF} cos(\alpha_T-\delta) + F_{yR} cos(\alpha_T) - m_T v_T \dot{\psi}}{m_T v_T} \\
+\ddot{\psi} = \frac{F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b}{I_T} \\\\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\alpha_F = arctan(\frac{v_T sin(\alpha_T) + a\dot{\psi}}{v_T cos(\alpha_T)}) - \delta\\
+\alpha_F = arctan(\frac{v_T sin(\alpha_T) - b\dot{\psi}}{v_T cos(\alpha_T)}) \\\\
+\end{aligned}
+\end{equation}
+
+The new state and the state equations are
+
+\begin{equation}
+\begin{aligned}
+x1 = x\\
+x2 = y\\
+x3 = \psi\\
+x4 = v_T\\
+x5 = \alpha_T\\
+x6 = \dot{\psi}\\\\
+\dot{x_1} = x_4 cos(x_3 + x_5)\\
+\dot{x_2} = x_5 sin(x_3 + x_5)\\
+\dot{x_3} = x_6 \\
+\dot{x_4} = \frac{F_{xF} cos(x_5-\delta) + F_{xR} cos(x_5) + F_{yF} sin(x_5-\delta) + F_{yR} sin(x_5)}{m_T} \\
+\dot{x_5} = \frac{-F_{xF} sin(x_5-\delta) - F_{xR} sin(x_5) + F_{yF} cos(x_5-\delta) + F_{yR} cos(x_5) - m_T x_4 x_6}{m_T x_4} \\
+\dot{x_6} = \frac{F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b}{I_T} \\\\
+\end{aligned}
+\end{equation}
+
+\end{document}
+
