@@ -1,12 +1,12 @@
 %% Tyre setup
-a0 = 1;         % Shape factor [-]
+a0 = 1.4;%1         % Shape factor [-]
 a1 = 0;         % Load dependency of lateral friction (*1000) [1/kN]
-a2 = 800;       % Lateral friction level (*1000) [-]
-a3 = 3000;      % Maximum cornering stiffness [N/deg]
-a4 = 50;        % Load at maximum cornering stiffness [kN]
+a2 = 1100;%800       % Lateral friction level (*1000) [-]
+a3 = 1100;%3000      % Maximum cornering stiffness [N/deg]
+a4 = 10;%50        % Load at maximum cornering stiffness [kN]
 a5 = 0;         % Camber sensitivity of cornering stiffness
 a6 = 0;         % Load dependency of curvature factor
-a7 = -1;        % Curvature factor level
+a7 = -2;%-1        % Curvature factor level
 a8 = 0;         % Camber sensitivity of horizontal shift
 a9 = 0;         % Load dependency of horizontal shift
 a10 = 0;        % Horizontal shift level
@@ -55,9 +55,9 @@ C_fuel = 0.0000003;
 cr = 0.003; %rolling resistence coeff
 
 %tyre wears param
-K_wear = 0.000000001; %-
-H = 60; %N/m^2
-TyreContactArea = 0.04; %m^2
+K_wear = 10^(-11); %-
+H = 100; %N/m^2
+TyreContactArea = 0.06; %m^2
 TyreRadius = 0.17; %m
 TyreArea = TyreRadius * TyreRadius * pi; %m^2 
 TyreWidth = 0.2; %m
