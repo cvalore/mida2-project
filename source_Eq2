@@ -7,8 +7,9 @@
 \usepackage{fancyhdr}
 \usepackage{lmodern}
 \usepackage{mathtools}
+\usepackage{xcolor}
 
-\title{\textbf{Dynamic bycicle model}}
+\title{\textbf{Dynamic bicycle model}}
 \author{Alessio Russo, Carmelo Valore}
 \date{\today}
 
@@ -18,7 +19,12 @@
 
 \section{Simple dynamic model}
 
-//TODO Inserire figura
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.7]{im_model.png}
+    \caption{Bicycle model}
+    \label{fig:bmodel}
+\end{figure}
 
 \begin{equation}
 \begin{aligned}
@@ -114,6 +120,92 @@ x6 = \dot{\psi}\\\\
 \dot{x_4} = \frac{F_{xF} cos(x_5-\delta) + F_{xR} cos(x_5) + F_{yF} sin(x_5-\delta) + F_{yR} sin(x_5)}{m_T} \\
 \dot{x_5} = \frac{-F_{xF} sin(x_5-\delta) - F_{xR} sin(x_5) + F_{yF} cos(x_5-\delta) + F_{yR} cos(x_5) - m_T x_4 x_6}{m_T x_4} \\
 \dot{x_6} = \frac{F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b}{I_T} \\\\
+\end{aligned}
+\end{equation}
+
+\section{Pacejka tyre model}
+
+The following Pacejka tyre model (Magic Formula) has been used, taking as inputs the body slip angle $\alpha$, the vertical load $F_z$ and the lateral friction coefficient $\mu_y$
+
+\begin{equation}
+\begin{aligned}
+F_y = - \frac{\mu_y}{\mu_{y0}} (F_{y0} + Sv)\\\\
+\end{aligned}
+\end{equation}
+
+With
+
+\begin{equation}
+\begin{aligned}
+F_{y0} = D sin (C arctan (B \alpha_{eq} - E (B \alpha_{eq} - arctan(B \alpha_{eq}))))\\
+\alpha_{eq} = \frac{\mu_{y0}}{\mu_y} (\alpha + S_h)\\
+C = a_0\\
+D = (a_1 F_z + a_2) F_z
+BCD = a_3 sin (2 arctan(\frac{F_z}{a_4})) (1 - a_5 |\gamma|)\\
+B = BCD / CD\\
+E = a_6 F_z + a_7\\
+S_h = a_8 \gamma + a_9 F_z + a_{10}\\
+S_v = a_{11}F_z \gamma + a_{12} F_z + a_{13}\\\\
+\end{aligned}
+\end{equation}
+
+Where $a_i$, i $\in$ \{0,..,13\}, are the parameters of the Pacejka model, in particular we have that
+
+\begin{equation*}
+\begin{aligned}
+a0 = \text{Shape factor [-]}\\
+a1 = \text{Load dependency of lateral friction (*1000) [1/kN]}\\
+a2 = \text{Lateral friction level (*1000) [-]}\\
+a3 = \text{Maximum cornering stiffness [N/deg]}\\
+a4 = \text{Load at maximum cornering stiffness [kN]}\\
+a5 = \text{Camber sensitivity of cornering stiffness}\\
+a6 = \text{Load dependency of curvature factor}\\
+a7 = \text{Curvature factor level}\\
+a8 = \text{Camber sensitivity of horizontal shift}\\
+a9 = \text{Load dependency of horizontal shift}\\
+a10 = \text{Horizontal shift level}\\
+a11 = \text{Combined load and camber sensitivity of vertical shift}\\
+a12 = \text{Load dependency of vertical shift}\\
+a13 = \text{Vertical shift level}\\\\
+\end{aligned}
+\end{equation*}
+
+\section{Aerodynamic force}
+
+The \color{red} following \color{black} changes have been done in the previous model to take into account for the aerodynamic force $F_A = \frac{1}{2} \rho C_x S v^2$ in the same direction of $v_T$ but in the opposite side, and $F_{Lift} = \frac{1}{2} \rho C_z S v^2$ that "pushes" the vehicle to be sticked on the ground
+
+\begin{equation}
+\begin{aligned}
+..\\
+\dot{x_4} = \frac{F_{xF} cos(x_5-\delta) + F_{xR} cos(x_5) + F_{yF} sin(x_5-\delta) + F_{yR} sin(x_5) \color{red} -\frac{1}{2} \rho C_x S v^2 \color{black}}{m_T} \\
+..\\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+F_z = mg \color{red} + \frac{1}{2} \rho C_z S v^2 \color{black} \\\\
+\end{aligned}
+\end{equation}
+
+\section{Fuel consumption}
+
+The \color{red} following \color{black} changes have been done in the previous model to take into account for the fuel consumption. A simplified version has been used, in which the Power is calculated ($P_e$) and multiplied by a coefficient ($C_{fuel}$) that accounts for fuel consumption for unit of power erogated. The fuel consumption has as side effect the reduction of the mass over time
+
+\begin{equation}
+\begin{aligned}
+\color{red} P_e = (F_{xF} + F_{xR}) v_T \color{black}\\
+\color{red} \dot{m} = P_e C_{fuel} \color{black}\\
+\end{aligned}
+\end{equation}
+
+\section{Tyre wear}
+
+The \color{red} following \color{black} have been add in the previous model to take into account for wear of the rubber compund of the tyre. The model is called Archard model, and it makes use of the vertical pression ($P_z = \frac{F_z}{Area}$), the longitudinal velocity of the wheels ($v_{xF}$ and $v_{xR}$) and some parameters (such as $K_{wear} [-]$ and $H [\frac{N}{m^2}]$). The model output is the wear depth over the time ($\dot{h}$), that then in the implementation is converted into $mm^3$ of wear. Here the Archard model formulation is shown
+
+\begin{equation}
+\begin{aligned}
+\color{red} \dot{h} = \frac{K_{wear} P_{load} v_{xi}}{H} \color{black}\\
+\text{where i $\in$ \{F, R\}}
 \end{aligned}
 \end{equation}
 
