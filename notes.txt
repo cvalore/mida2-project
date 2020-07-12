@@ -1,0 +1,12 @@
+Notes:
+
+Eq 15: nel modello diceva di usare la "sliding velocity", non avendo trovato troppe informazioni al riguardo, abbiamo usato la velocità LONGITUDINALE della ruota (???) forse dobbiamo usare (v_T - v_i)/max(.,.) [riportato come slip longitudinale su internet]
+
+Poi integrato nel tempo, moltiplicato per l'area della corona circolare, per avere il volume, e accumulato nel tempo
+
+Implementazione vera e propria, uso degli integratori Ts/z-1 ...
+
+Nel diminuire il picco max di F_lat in funzione dell'usura, non abbiamo trovato alcuna relazione standard, ne abbiamo "elaborata" una noi, in particolare una funzione fratta del tipo mu = 1/(w1 * wear + w2) + w3 che qualitativamente rappresentasse il comportamento voluto
+Per fare questa cosa anche con Fx, possiamo usare lo stesso comportamento qualitativo o ci sono relazioni ben definite?
+
+https://www.desmos.com/calculator/coyei6lsbn
