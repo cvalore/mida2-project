@@ -1,0 +1,311 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{mathtools}
+\usepackage{xcolor}
+
+\title{\textbf{Dynamic bicycle model}}
+\author{Alessio Russo, Carmelo Valore}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Simple dynamic model}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.7]{im_model.png}
+    \caption{Bicycle model}
+    \label{fig:bmodel}
+\end{figure}
+
+\begin{equation}
+\begin{aligned}
+m_T \ddot{x} = F_{xF} cos(\psi+\delta) + F_{xR} cos(\psi) - F_{yF} sin(\psi+\delta) - F_{yR} sin(\psi) \\
+m_T \ddot{y} = F_{xF} sin(\psi+\delta) + F_{xR} sin(\psi) + F_{yF} cos(\psi+\delta) + F_{yR} cos(\psi) \\
+I_T \ddot{\psi} = F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b\\\\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\alpha_F = arctan(\frac{\dot{y}+a\dot{\psi}cos(\psi)}{\dot{x}-a\dot{\psi}sin(\psi)}) - (\delta + \psi)\\
+\alpha_R = arctan(\frac{\dot{y}-b\dot{\psi}cos(\psi)}{\dot{x}+b\dot{\psi}sin(\psi)}) - \psi\\\\
+\end{aligned}
+\end{equation}
+
+At first, as state vector this has been used:
+
+\begin{equation}
+\begin{aligned}
+z1 = x\\
+z2 = y\\
+z3 = \psi\\
+z4 = \dot{x}\\
+z5 = \dot{y}\\
+z6 = \dot{\psi}\\\\
+\end{aligned}
+\end{equation}
+
+So that
+
+\begin{equation}
+\begin{aligned}
+\dot{z_1} = z_4 \\
+\dot{z_2} = z_5 \\
+\dot{z_3} = z_6 \\
+\dot{z_4} = \frac{F_{xF} cos(z_3+\delta) + F_{xR} cos(z_3) - F_{yF} sin(z_3+\delta) - F_{yR} sin(z_3)}{m_T} \\
+\dot{z_5} = \frac{F_{xF} sin(z_3+\delta) + F_{xR} sin(z_3) + F_{yF} cos(z_3+\delta) + F_{yR} cos(z_3)}{m_T} \\
+\dot{z_6} = \frac{F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b}{I_T} \\\\
+\end{aligned}
+\end{equation}
+
+With slip angles
+
+\begin{equation}
+\begin{aligned}
+\alpha_F = arctan(\frac{z_5+a z_6 cos(z_3)}{z_4-a z_6 sin(z_3)}) - (\delta + z_3)\\
+\alpha_R = arctan(\frac{z_5-b z_6 cos(z_3)}{z_4+b z_6 sin(z_3)}) - z_3\\\\
+\end{aligned}
+\end{equation}
+
+Now instead of using $\dot{x}$ and $\dot{y}$, $v_T$ and $\alpha_T$ have been used. The trasformations are the following: 
+
+\begin{equation}
+\begin{aligned}
+\dot{x} = v_T cos(\psi + \alpha_T)\\
+\dot{y} = v_T sin(\psi + \alpha_T)\\\\
+\ddot{x} = \dot{v_T} cos(\psi + \alpha_T) - v_T (\dot{\psi} + \dot{\alpha_T}) sin(\psi + \alpha_T)\\
+\ddot{y} = \dot{v_T} sin(\psi + \alpha_T) + v_T (\dot{\psi} + \dot{\alpha_T}) cos(\psi + \alpha_T)\\\\
+\end{aligned}
+\end{equation}
+
+Substituting and simplyfing with the help of Matlab
+
+\begin{equation}
+\begin{aligned}
+\dot{v_T} = \frac{F_{xF} cos(\alpha_T-\delta) + F_{xR} cos(\alpha_T) + F_{yF} sin(\alpha_T-\delta) + F_{yR} sin(\alpha_T)}{m_T} \\
+\dot{\alpha_T} = \frac{-F_{xF} sin(\alpha_T-\delta) - F_{xR} sin(\alpha_T) + F_{yF} cos(\alpha_T-\delta) + F_{yR} cos(\alpha_T) - m_T v_T \dot{\psi}}{m_T v_T} \\
+\ddot{\psi} = \frac{F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b}{I_T} \\\\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\alpha_F = arctan(\frac{v_T sin(\alpha_T) + a\dot{\psi}}{v_T cos(\alpha_T)}) - \delta\\
+\alpha_F = arctan(\frac{v_T sin(\alpha_T) - b\dot{\psi}}{v_T cos(\alpha_T)}) \\\\
+\end{aligned}
+\end{equation}
+
+The new state and the state equations are
+
+\begin{equation}
+\begin{aligned}
+x1 = x\\
+x2 = y\\
+x3 = \psi\\
+x4 = v_T\\
+x5 = \alpha_T\\
+x6 = \dot{\psi}\\\\
+\dot{x_1} = x_4 cos(x_3 + x_5)\\
+\dot{x_2} = x_5 sin(x_3 + x_5)\\
+\dot{x_3} = x_6 \\
+\dot{x_4} = \frac{F_{xF} cos(x_5-\delta) + F_{xR} cos(x_5) + F_{yF} sin(x_5-\delta) + F_{yR} sin(x_5)}{m_T} \\
+\dot{x_5} = \frac{-F_{xF} sin(x_5-\delta) - F_{xR} sin(x_5) + F_{yF} cos(x_5-\delta) + F_{yR} cos(x_5) - m_T x_4 x_6}{m_T x_4} \\
+\dot{x_6} = \frac{F_{xF} a sin(\delta) + F_{yF} a cos(\delta) - F_{yR} b}{I_T} \\\\
+\end{aligned}
+\end{equation}
+
+\section{Pacejka tyre model}
+
+The following Pacejka tyre model (Magic Formula) has been used, taking as inputs the body slip angle $\alpha$, the vertical load $F_z$ and the lateral friction coefficient $\mu_y$
+
+\begin{equation}
+\begin{aligned}
+F_y = - \frac{\mu_y}{\mu_{y0}} (F_{y0} + Sv)\\\\
+\end{aligned}
+\end{equation}
+
+With
+
+\begin{equation}
+\begin{aligned}
+F_{y0} = D sin (C arctan (B \alpha_{eq} - E (B \alpha_{eq} - arctan(B \alpha_{eq}))))\\
+\alpha_{eq} = \frac{\mu_{y0}}{\mu_y} (\alpha + S_h)\\
+C = a_0\\
+D = (a_1 F_z + a_2) F_z
+BCD = a_3 sin (2 arctan(\frac{F_z}{a_4})) (1 - a_5 |\gamma|)\\
+B = BCD / CD\\
+E = a_6 F_z + a_7\\
+S_h = a_8 \gamma + a_9 F_z + a_{10}\\
+S_v = a_{11}F_z \gamma + a_{12} F_z + a_{13}\\\\
+\end{aligned}
+\end{equation}
+
+Where $a_i$, i $\in$ \{0,..,13\}, are the parameters of the Pacejka model, whose value and meaning can be seen in the Appendix.
+
+\section{Aerodynamic force}
+
+The \color{red} following \color{black} changes have been done in the previous model to take into account for the aerodynamic force $F_A = \frac{1}{2} \rho C_x S v^2$ in the same direction of $v_T$ but in the opposite side, and $F_{Lift} = \frac{1}{2} \rho C_z S v^2$ that "pushes" the vehicle to be sticked on the ground
+
+\begin{equation}
+\begin{aligned}
+..\\
+\dot{x_4} = \frac{F_{xF} cos(x_5-\delta) + F_{xR} cos(x_5) + F_{yF} sin(x_5-\delta) + F_{yR} sin(x_5) \color{red} -\frac{1}{2} \rho C_x S v^2 \color{black}}{m_T} \\
+..\\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+F_z = mg \color{red} + \frac{1}{2} \rho C_z S v^2 \color{black} \\\\
+\end{aligned}
+\end{equation}
+
+\section{Fuel consumption}
+
+The \color{red} following \color{black} changes have been done in the previous model to take fuel consumption into account. A simplified version has been used, in which the Power is computed ($P_e$) and multiplied by a coefficient ($C_{fuel}$) that expresses the relation among mass loss (in terms of fuel consumption) and power provided
+
+\begin{equation}
+\begin{aligned}
+\color{red} P_e = (F_{xF} + F_{xR}) v_T \color{black}\\
+\color{red} \dot{m} = P_e C_{fuel} \color{black}\\
+\end{aligned}
+\end{equation}
+
+\section{Tyre wear}
+
+The \color{red} following \color{black} have been added in the previous model to take into account for wear of the rubber compound of the tyre. The model is called Archard model, and it makes use of the vertical pression ($P_z = \frac{F_z}{Area}$), the longitudinal velocity of the wheels ($v_{xF}$ and $v_{xR}$) and some parameters (such as $K_{wear} [-]$ and $H [\frac{N}{m^2}]$). The model output is the wear depth over the time ($\dot{h}$), that will be then converted into $mm^3$ of wasted material. Here the Archard model formulation is shown
+
+\begin{equation}
+\begin{aligned}
+\color{red} \dot{h} = \frac{K_{wear} P_{load} v_{xi}}{H} \color{black}\\
+\text{where i $\in$ \{F, R\}}
+\end{aligned}
+\end{equation}
+
+\section{Banking}
+
+Taking into account the shape of the road we introduce other terms in the model equations. As can be seen in figure \ref{fig:lateral} and \ref{fig:Zaxis} we first consider the resultant lateral force $F_{LAT}$ acting on the vehicle, after this step we are able to find the equilibrium on the Z axis that allows to compute the value of $F_{Nx}$. 
+\\
+
+\begin{equation}
+\begin{aligned}
+F_{LAT} = F_{yR} + F_{xF} sin(\delta) + F_{yF} cos(\delta) \\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+mg + F_{Lift} cos(\gamma) + F_{LAT} sin(\gamma) = F_{Nz} \\
+F_{Nx} = F_{Nz} tan(\gamma) \\\\
+\end{aligned}
+\end{equation}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.4]{lateral.jpg}
+    \caption{Lateral forces acting on the vehicle}
+    \label{fig:lateral}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.3]{equilibriumOnZAxis.jpg}
+    \caption{Equilibrium on Z axis}
+    \label{fig:Zaxis}
+\end{figure}
+
+As can be seen from this figure, the contribution of this lateral force acting on the vehicle will add some new terms in the equations of the model.
+Along the direction of $v_T$ the contribution of the force is \color{red} $F_{Nx} sin(\alpha_T)$\color{black}, while on the orthogonal direction it is represented by the force \color{red} $F_{Nx} cos(\alpha_T)$\color{black}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.4]{basedOnPosition.jpg}
+    \caption{Terms affecting the model equations}
+    \label{fig:FNx decomposed along V_T and its orthogonal direction}
+\end{figure}
+
+In the end the final equations will be:
+\begin{equation}
+\begin{aligned}
+\\
+\dot{x_4} = \frac{F_{xF} cos(x_5-\delta) + F_{xR} cos(x_5) + F_{yF} sin(x_5-\delta) + F_{yR} sin(x_5) -\frac{1}{2} \rho C_x S v^2 \color{red} + F_{Nx} sin(x_5) \color{black}}{m_T} \\
+\\
+\dot{x_5} = \frac{-F_{xF} sin(x_5-\delta) - F_{xR} sin(x_5) + F_{yF} cos(x_5-\delta) + F_{yR} cos(x_5) - m_T x_4 x_6 \color{red} + F_{Nx} cos(x_5) \color{black}}{m_T x_4} \\
+\end{aligned}
+\end{equation}
+
+\newpage
+
+\section{Appendix}
+
+In this section we will define the values given to the different parameters. 
+
+\begin{equation*}
+\begin{aligned}
+a0 = 1.4 [-] \text{--------Shape factor}\\
+a1 = 0 [1/kN] \text{--------Load dependency of lateral friction (*1000)}\\
+a2 = 1100 [-] \text{--------Lateral friction level (*1000)}\\
+a3 = 1100 [N/deg] \text{--------Maximum cornering stiffness}\\
+a4 = 10 [kN] \text{--------Load at maximum cornering stiffness}\\
+a5 = 0 \text{--------Camber sensitivity of cornering stiffness}\\
+a6 = 0 \text{--------Load dependency of curvature factor}\\
+a7 = -2 [-] \text{--------Curvature factor level}\\
+a8 = 0 \text{--------Camber sensitivity of horizontal shift}\\
+a9 = 0 \text{--------Load dependency of horizontal shift}\\
+a10 = 0 \text{--------Horizontal shift level}\\
+a11 = 0 \text{--------Combined load and camber sensitivity of vertical shift}\\
+a12 = 0 \text{--------Load dependency of vertical shift}\\
+a13 = 0 \text{--------Vertical shift level}\\\\
+\gamma = 0 [rad] \text{--------Camber angle}\\
+\mu_{lateral} = 0.3 [-] \text{--------Lateral friction coefficient}\\\\
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+m_T = 1500 [kg] \text{--------Mass of the vehicle}\\
+g = 9.81 [\frac{m}{s^2}] \text{--------Gravity acceleration}\\
+a = 1.2 [m] \text{--------Distance between center of vehicle and front wheel}\\
+b = 1.6 [m] \text{--------Distance between center of vehicle and rear wheel}\\
+I_T = 2875 [\frac{kg m^2}{s}] \text{--------Moment of Inertia of the vehicle}\\\\
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+C_x = 0.8 [-] \text{--------Drag coefficient}\\
+C_z = 1.5 [-] \text{--------Lift coefficient}\\
+rho = 1.225 [\frac{kg}{m^3}] \text{--------Density of air}\\
+Area = 2 [m] \text{--------Area of the vehicle on which the air goes through}\\\\
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+vel_{max} = 50 [\frac{m}{s}] \text{--------Maximum velocity of the vehicle}\\
+vel_{init} = 20 [\frac{m}{s}] \text{--------Initial velocity of the vehicle}\\
+yPos_{init} = -5.625 [m] \text{--------Initial y position of the vehicle}\\\\
+C_{fuel} = 3x10^-7 [\frac{s^2}{m^2}] \text{--------Fuel consumption coefficient}\\\\
+K_{wear} = 10^-9 [-] \text{--------Tyre wear parameter}\\
+H = 60 [\frac{N}{m^2}] \text{--------Tyre wear parameter}\\\\
+TyreContactArea = 0.04 [m^2] \text{--------Area of the tyre which is in contact to the asphalt}\\
+TyreRadius = 0.17 [m] \text{--------Radius of the tyre}\\
+TyreArea = TyreRadius^2 \pi; [m^2] \text{--------Area of the tyre}\\ 
+TyreWidth = 0.2 [m] \text{--------Width of the tyre}\\\\
+\end{aligned}
+\end{equation*}
+
+
+
+\end{document}
+
