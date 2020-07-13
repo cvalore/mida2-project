@@ -33,7 +33,7 @@ mu_lateral = 0.3;
     xMax, xMin, yMax, yMin, bankingAngle] = track3d();
 
 %% Simulation parameters
-Ts = 0.1;
+%Ts = 0.1;
 
 mT = 1500;
 g = 9.81;
@@ -55,8 +55,8 @@ init_y_pos = -5.625;
 C_fuel = 0.0000003;
 
 %tyre wears param
-K_wear = 10^(-11); %-
-H = 100; %N/m^2
+K_wear = 10^(-9); %-?
+H = 10^9; %-?
 TyreContactArea = 0.06; %m^2
 TyreRadius = 0.17; %m
 TyreArea = TyreRadius * TyreRadius * pi; %m^2 
