@@ -40,6 +40,8 @@ g = 9.81;
 a = 1.2;
 b = 1.6;
 IT = 2875;
+l_f = 0.45; %load distrib over front wheel
+l_r = 0.55; %load distrib over rear wheel
 
 Cx = 0.8;
 Cz = 1.5; %values to adjust
@@ -51,8 +53,6 @@ init_vel = 20;
 init_y_pos = -5.625;
 
 C_fuel = 0.0000003;
-
-cr = 0.003; %rolling resistence coeff
 
 %tyre wears param
 K_wear = 10^(-11); %-
