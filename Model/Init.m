@@ -40,8 +40,8 @@ g = 9.81;
 a = 1.2;
 b = 1.6;
 IT = 2875;
-l_f = 0.45; %load distrib over front wheel
-l_r = 0.55; %load distrib over rear wheel
+l_f = 0.48; %load distrib over front wheel
+l_r = 0.52; %load distrib over rear wheel
 
 Cx = 0.8;
 Cz = 1.5; %values to adjust
