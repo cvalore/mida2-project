@@ -1,6 +1,6 @@
 %% plot the results of the sim
 
-%track3d();
+track3d();
 hold on;
 
 plot(out.egoX_Pos, out.egoY_Pos, 'b-', 'LineWidth', 2.5);

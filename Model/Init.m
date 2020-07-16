@@ -14,6 +14,13 @@ a11 = 0;        % Combined load and camber sensitivity of vertical shift
 a12 = 0;        % Load dependency of vertical shift
 a13 = 0;        % Load dependency of vertical shift
 
+%%add for new Pajecka model (test)
+a14 = 0; 	%Camber influence on vertical shift 	N/deg 	-15 .. +15 	
+a15 = 0;	%Camber influence on lateral friction coefficient 	1/deg 	-0.01 .. +0.01 	
+a16 = 0;	%Curvature change with camber 		-0.1 .. +0.1 
+a17 = 0;	%Curvature shift
+%%
+
 camber = 0;     % Camber angle
 
 mu_lateral = 0.3;
