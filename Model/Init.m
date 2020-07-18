@@ -1,7 +1,7 @@
 %% Tyre setup
 a0 = 1.4;%1         % Shape factor [-]
 a1 = 0;         % Load dependency of lateral friction (*1000) [1/kN]
-a2 = 1100;%800       % Lateral friction level (*1000) [-]
+a2 = 500;%800       % Lateral friction level (*1000) [-]
 a3 = 1100;%3000      % Maximum cornering stiffness [N/deg]
 a4 = 10;%50        % Load at maximum cornering stiffness [kN]
 a5 = 0;         % Camber sensitivity of cornering stiffness
