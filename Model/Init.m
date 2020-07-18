@@ -1,22 +1,22 @@
 %% Tyre setup
-a0 = 1.4;%1         % [-] \text{--------Shape factor}
-a1 = 0;         % [1/kN] \text{--------Load influence on lateral friction coefficient (*1000)}
-a2 = 500;%800       % [-] \text{--------Lateral friction coefficient (*1000)}
-a3 = 1100;%3000      % [N/deg] \text{--------Change of stiffness with slip}
-a4 = 10;%50        % kN] \text{--------Change of progressivity of stiffness / load}
-a5 = 0;         % [\%/deg/100] \text{--------Camber influence on stiffness}
-a6 = 0;         % [-] \text{--------Curvature change with load}
-a7 = -2;%-1        % [-] \text{--------Curvature factor}
-a8 = 0;         % [deg/kN] \text{--------Load influence on horizontal shift}
-a9 = 0;         % [deg] \text{--------Horizontal shift at load = 0 and camber = 0}
-a10 = 0;        %  [-] \text{--------Camber influence on horizontal shift}
-a11 = 0;        % [N] \text{--------Vertical shift}
-a12 = 0;        % [N] \text{--------Vertical shift at load = 0}
-a13 = 0;        % [N/deg/kN] \text{--------Camber influence on vertical shift, load dependent}
-a14 = 0; 	% [N/deg] \text{--------Camber influence on vertical shift}
-a15 = 0;	% [1/deg] \text{--------Camber influence on lateral friction coefficient}
-a16 = 0;	% [-] \text{--------Curvature change with camber}
-a17 = 0;	% [-] \text{-------- 	Curvature shift}
+a0 = 1.4;       % [-]       --------Shape factor
+a1 = 0;         % [1/kN]    --------Load influence on lateral friction coefficient (*1000)
+a2 = 500;       % [-]       --------Lateral friction coefficient (*1000)
+a3 = 1100;      % [N/deg]   --------Change of stiffness with slip
+a4 = 10;        % [kN]      --------Change of progressivity of stiffness / load
+a5 = 0;         % [\%/deg/100]  --------Camber influence on stiffness
+a6 = 0;         % [-]       --------Curvature change with load
+a7 = -2;        % [-]       --------Curvature factor
+a8 = 0;         % [deg/kN]  --------Load influence on horizontal shift
+a9 = 0;         % [deg]     --------Horizontal shift at load = 0 and camber = 0
+a10 = 0;        % [-]       --------Camber influence on horizontal shift
+a11 = 0;        % [N]       --------Vertical shift
+a12 = 0;        % [N]       --------Vertical shift at load = 0
+a13 = 0;        % [N/deg/kN]    --------Camber influence on vertical shift, load dependent
+a14 = 0;        % [N/deg]   --------Camber influence on vertical shift
+a15 = 0;        % [1/deg]   --------Camber influence on lateral friction coefficient
+a16 = 0;        % [-]       --------Curvature change with camber
+a17 = 0;        % [-]       -------- 	Curvature shift
 
 camber = 0;     % Camber angle
 
