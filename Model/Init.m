@@ -20,7 +20,13 @@ a17 = 0;        % [-]       -------- 	Curvature shift
 
 camber = 0;     % Camber angle
 
-mu_lateral = 0.3;
+b1 = 0;
+b2 = 600;
+b11 = 0;
+b12 = 0;
+
+w1 = 10^(-4.7); %wear param1
+w2 = 1; %wear param2
 
 %% Track parameters
 %global longStraight;
