@@ -1,7 +1,7 @@
 %% Tyre setup
 a0 = 1.4;       % [-]       --------Shape factor
 a1 = 0;         % [1/kN]    --------Load influence on lateral friction coefficient (*1000)
-a2 = 500;       % [-]       --------Lateral friction coefficient (*1000)
+a2 = 2000;       % [-]       --------Lateral friction coefficient (*1000)
 a3 = 1100;      % [N/deg]   --------Change of stiffness with slip
 a4 = 10;        % [kN]      --------Change of progressivity of stiffness / load
 a5 = 0;         % [\%/deg/100]  --------Camber influence on stiffness
@@ -21,7 +21,7 @@ a17 = 0;        % [-]       -------- 	Curvature shift
 camber = 0;     % Camber angle
 
 b1 = 0;
-b2 = 600;
+b2 = 2200;
 b11 = 0;
 b12 = 0;
 
@@ -57,7 +57,8 @@ l_r = 0.55; %load distrib over rear wheel
 
 Cx = 0.8;
 Cz = 1.5; %values to adjust
-rho = 1.225;
+rho_0 = 1.225; %rho non scia
+rho_1 = 0.8;%rho scia
 Area = 2;   %assuming 2m^2 of surface for the vehicle
 
 max_vel = 50;
@@ -69,7 +70,7 @@ C_fuel = 0.0000003;
 %tyre wears param
 %K_wear = 10^(-9); %-?
 %H = 10^9; %-?
-K_wear = 10^-18; %m^3 s^3 / kg^2
+K_wear = 0.5*10^-18; %m^3 s^3 / kg^2
 TyreContactArea = 0.06; %m^2
 TyreRadius = 0.17; %m
 TyreArea = TyreRadius * TyreRadius * pi; %m^2 
