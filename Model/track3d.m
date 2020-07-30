@@ -100,8 +100,8 @@ zS4 = zS4 + zOffset;
 curveRays = RC1(:,1); % rays from C1, C2, C3 and C4 are the same
 curveCenters = [    longStraight/2, curveCoord;
                     longStraight/2, curveCoord + shortStraight;
-                    -longStraight/2, curveCoord;
-                    -longStraight/2, curveCoord + shortStraight;];
+                    -longStraight/2, curveCoord + shortStraight;
+                    -longStraight/2, curveCoord;];
 curveZ = zC1(:,1); % z from C1, C2, C3 and C4 are the same;
 
 xMax = longStraight/2 + curveCoord + roadWidth/2;
