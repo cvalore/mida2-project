@@ -1,7 +1,3 @@
-Notes:
+la gara si compone di 20 giri in massimo 25 minuti
 
-Nuova versione dell' archard ci da hdot oppure h?
-Accumulatore per wear?
-
-Figure forza laterale ok e magari "strani" solo causa controllo/parametri non tarati?
-(Piu che altro è strano l output di alfaR)
+supponiamo di fare pit stop per cambio ruote?
