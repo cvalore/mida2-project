@@ -27,7 +27,7 @@ S4 = [ S3(1,2)-curveCoord   S3(1,2)-curveCoord;
        S3(2,2)-curveCoord   S3(2,2)-curveCoord-shortStraight ];
  
 %% create surfaces for straight sectors
-hold on;
+%hold on;
 
 [xS1, yS1] = meshgrid(S1(1,1):(longStraight/10):S1(1,2), ...
     (-roadWidth/2):(roadWidth/3):(roadWidth/2));
@@ -110,24 +110,24 @@ xMin = -xMax;
 yMin = 0 - roadWidth/2;
 
 %% plot
-surf(xS1, yS1, zS1);
-surf(xS2, yS2, zS2);
-surf(xS3, yS3, zS3);
-surf(xS4, yS4, zS4);
-surf(xC1, yC1, zC1);
-surf(xC2, yC2, zC2);
-surf(xC3, yC3, zC3);
-surf(xC4, yC4, zC4);
+%surf(xS1, yS1, zS1);
+%surf(xS2, yS2, zS2);
+%surf(xS3, yS3, zS3);
+%surf(xS4, yS4, zS4);
+%surf(xC1, yC1, zC1);
+%surf(xC2, yC2, zC2);
+%surf(xC3, yC3, zC3);
+%surf(xC4, yC4, zC4);
 
-xlim([-900, 900]);
-ylim([-100, 800]);
-zlim([0, 50]);
-xlabel('X [m]');
-ylabel('Y [m]');
-zlabel('Z [m]');
-title('Track');
+%xlim([-900, 900]);
+%ylim([-100, 800]);
+%zlim([0, 50]);
+%xlabel('X [m]');
+%ylabel('Y [m]');
+%zlabel('Z [m]');
+%title('Track');
 
-hold off;
+%hold off;
 
 %% return all needed
 rS1 = S1;
