@@ -5,7 +5,7 @@ supponiamo di fare pit stop per cambio ruote?
 Simulazioni
 
 1a) andare dritto senza accelerare      Fx 0 steering 0 30s 20m/s
-1b) andare dritto accelerando		Fx 500 steering 0 30s 0m/s
+1b) andare dritto accelerando		Fx 1000 steering 0 30s 0m/s
 1c) andare dritto fino al banking
 
 2) andare dritto accelerando e poi frenare
