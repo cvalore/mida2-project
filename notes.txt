@@ -1,3 +1,15 @@
 la gara si compone di 20 giri in massimo 25 minuti
 
 supponiamo di fare pit stop per cambio ruote?
+
+Simulazioni
+
+1a) andare dritto senza accelerare
+1b) andare dritto accelerando
+1c) andare dritto fino al banking
+
+2) andare dritto accelerando e poi frenare
+
+3) girare intorno a una circonferenza
+
+4) rettilineo + curva a S + rettilineo
