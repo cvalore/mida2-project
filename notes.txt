@@ -4,9 +4,15 @@ supponiamo di fare pit stop per cambio ruote?
 
 Simulazioni
 
+<<<<<<< HEAD
 1a) andare dritto senza accelerare      Fx = 0 		steering 0 30s 20m/s
 1b) andare dritto accelerando		Fx = 500 	steering 0 30s 0m/s
 1c) andare dritto fino al banking	Fx = 500 	stering = 0 deg
+=======
+1a) andare dritto senza accelerare      Fx 0 steering 0 30s 20m/s
+1b) andare dritto accelerando		Fx 1000 steering 0 30s 0m/s
+1c) andare dritto fino al banking
+>>>>>>> ecaa2cfa347c533b8c83aa6362cd0e80fdcf5010
 
 2) andare dritto accelerando e poi frenare	Fx = 500N per 15s e poi Fx = -200N
 
