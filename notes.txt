@@ -4,18 +4,37 @@ supponiamo di fare pit stop per cambio ruote?
 
 Simulazioni
 
-<<<<<<< HEAD
 1a) andare dritto senza accelerare      Fx = 0 		steering 0 30s 20m/s
-1b) andare dritto accelerando		Fx = 500 	steering 0 30s 0m/s
+1b) andare dritto accelerando		Fx = 1000	steering 0 30s 0m/s
 1c) andare dritto fino al banking	Fx = 500 	stering = 0 deg
-=======
-1a) andare dritto senza accelerare      Fx 0 steering 0 30s 20m/s
-1b) andare dritto accelerando		Fx 1000 steering 0 30s 0m/s
-1c) andare dritto fino al banking
->>>>>>> ecaa2cfa347c533b8c83aa6362cd0e80fdcf5010
 
 2) andare dritto accelerando e poi frenare	Fx = 500N per 15s e poi Fx = -200N
 
 3) girare intorno a una circonferenza	Fx 500 steering 0.01 140s 0m/s
 
-4) rettilineo + curva a S + rettilineo
+4) rettilineo + curva a S + rettilineo	70s funzioni:
+function force = forceCalculatation(clock)
+
+if clock <= 10
+    force = 1000;
+elseif clock > 10 && clock <= 30
+    force = -300;
+elseif clock > 30 && clock <= 50
+    force = 300;
+else
+    force = 0;
+end
+-------------
+function steer = steerCalculation(clock)
+
+if clock <= 10
+    steer = 0;
+elseif clock > 10 && clock <= 30
+    steer = 0.02;
+elseif clock > 30 && clock <= 50
+    steer = -0.02;
+else
+    steer = 0;
+end
+
+	
