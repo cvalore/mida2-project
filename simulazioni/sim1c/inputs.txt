@@ -1,0 +1,5 @@
+input conditions 
+
+F_x = 500N
+
+steering angle = 0
