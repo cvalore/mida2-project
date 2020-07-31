@@ -60,8 +60,9 @@ Cz = 1.5; %values to adjust
 rho_0 = 1.225; %rho non scia
 rho_1 = 0.8;%rho scia
 Area = 2;   %assuming 2m^2 of surface for the vehicle
-distanceThreshold = 2;
+distanceThreshold = 10;
 overlapThreshold = 1;
+alpha = 0.7;
 
 max_vel = 50;
 init_vel = 20;
