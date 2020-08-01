@@ -37,4 +37,103 @@ else
     steer = 0;
 end
 
+5) circa 1/4 pista  40s funzioni
+function force = forceCalculatation(clock)
+
+if clock <= 10
+    force = 2000;
+elseif clock > 10 && clock <= 20
+    force = 400;
+elseif clock > 20 && clock <= 30
+    force = -500;
+elseif clock > 30 && clock <= 40
+    force = 500;
+else
+    force = 0;
+end
+----------------
+function steer = steerCalculation(clock)
+
+if clock <= 14
+    steer = 0;
+elseif clock > 14 && clock <= 15
+    steer = 0.005;
+elseif clock > 15 && clock <= 20
+    steer = 0.025;
+elseif clock > 20 && clock <= 22
+    steer = 0.02;
+elseif clock > 22 && clock <= 25
+    steer = 0;
+elseif clock > 25 && clock <= 26
+    steer = 0.03;
+elseif clock > 26 && clock <= 33
+    steer = 0.01;
+elseif clock > 33 && clock <= 40
+    steer = -0.01;
+else
+    steer = 0;
+end
+
+6) 1/2 80s pista funzioni
+function steer = steerCalculation(clock)
+
+if clock <= 14
+    steer = 0;
+elseif clock > 14 && clock <= 15
+    steer = 0.005;
+elseif clock > 15 && clock <= 20
+    steer = 0.025;
+elseif clock > 20 && clock <= 22
+    steer = 0.02;
+elseif clock > 22 && clock <= 25
+    steer = 0;
+elseif clock > 25 && clock <= 26
+    steer = 0.03;
+elseif clock > 26 && clock <= 33
+    steer = 0.01;
+elseif clock > 33 && clock <= 35
+    steer = -0.02;
+elseif clock > 35 && clock <= 40
+    steer = 0;
+elseif clock > 40 && clock <= 41
+    steer = 0.03;
+elseif clock > 41 && clock <= 43
+    steer = 0.02;
+elseif clock > 43 && clock <= 50
+    steer = 0.01;
+elseif clock > 50 && clock <= 53
+    steer = 0.02;
+elseif clock > 53 && clock <= 55
+    steer = 0.01;
+elseif clock > 55 && clock <= 57
+    steer = 0.006;
+elseif clock > 57 && clock <= 60
+    steer = 0;
+else
+    steer = 0;
+end
+---------------------------
+function force = forceCalculatation(clock)
+
+if clock <= 10
+    force = 2000;
+elseif clock > 10 && clock <= 20
+    force = 400;
+elseif clock > 20 && clock <= 30
+    force = -500;
+elseif clock > 30 && clock <= 40
+    force = 500;
+elseif clock > 40 && clock <= 42
+    force = 1500;
+elseif clock > 42 && clock <= 44
+    force = -750;
+elseif clock > 44 && clock <= 46
+    force = 500;
+elseif clock > 57 && clock <= 90
+    force = 1500;
+else
+    force = 500;
+end
+
+
 	
