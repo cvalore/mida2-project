@@ -2,6 +2,8 @@ la gara si compone di 20 giri in massimo 25 minuti
 
 supponiamo di fare pit stop per cambio ruote?
 
+scia solo funzione della distanza e non della velocità
+
 Simulazioni
 
 1a) andare dritto senza accelerare      Fx = 0 		steering 0 30s 20m/s

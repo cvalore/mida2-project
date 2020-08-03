@@ -1,0 +1,41 @@
+function res = bankingTest(x, y, curveCenters, ...
+    bankingThresholdLong, bankingThresholdShort, bankingAngle, midY)
+
+if(y < curveCenters(1,2) || y > curveCenters(2,2)) 
+   if(abs(x) < curveCenters(1,1) - bankingThresholdLong)
+       res = 0;
+   elseif (abs(x) > curveCenters(1,1))
+       res = bankingAngle;
+   else
+       res = bankingAngle*( 1 - ((abs(x) -  curveCenters(1,1))/(-bankingThresholdLong)) );
+   end
+else
+    if (abs(y-midY) < curveCenters(2,2) - bankingThresholdShort - midY)
+        res = 0;
+    else
+        res = bankingAngle*( 1 - ((abs(y-midY) -  curveCenters(2,2) + midY)/(-bankingThresholdShort)) );
+    end
+end
+
+-----------------------------
+
+if(y < curveCenters(1,2) || y > curveCenters(2,2)) 
+    if(x > 0)
+        if(x < curveCenters(1,1) - bankingThresholdLong)
+           res = 0;
+        elseif (x > curveCenters(1,1))
+           res = bankingAngle;
+        else
+           res = bankingAngle*( 1 - (x -  curveCenters(1,1))/(-bankingThresholdLong));
+        end
+    else
+        if (x > curveCenters(4,1) + bankingThresholdLong)
+           res = 0;
+        elseif (x < curveCenters(4,1))
+           res = bankingAngle;
+        else
+           res = bankingAngle*( 1 - (-x +  curveCenters(4,1))/(-bankingThresholdLong));
+        end
+    end
+else
+...

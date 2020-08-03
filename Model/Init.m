@@ -67,6 +67,8 @@ alpha = 0.7;
 max_vel = 50;
 init_vel = 0.01;  
 init_y_pos = -5.625;
+bankingThresholdLong = 110;
+bankingThresholdShort = 40;
 
 C_fuel = 0.0000003;
 
