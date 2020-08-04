@@ -38,25 +38,27 @@ TyreContactArea = 0.06; % [m^2] --------area of contact between tyre and asphalt
 % shape of the road
 
 %% Simulation parameters
-m_fuel = 60; % [kg]  --------mass of the fuel
+m_fuel = 58; % [kg]  --------mass of the fuel
 m_vehicle = 590; % [kg]  --------mass of only the vehicle
 m_passenger = 70; % [kg]  --------mass of the passenger
 mT = m_vehicle + m_fuel + m_passenger; % [kg]  --------total mass
 g = 9.81; % [m/s^2]  --------gravity acceleration
-a = 1.2; % [m]  --------distance betwen COG and front tyre
-b = 1.6; % [m]  --------distance betwen COG and rear tyre
-IT = 1400; % [kg m^2]  --------moment of inertia
-l_f = 0.45; % [-]   --------load distrib over front wheel
-l_r = 0.55; % [-]   --------load distrib over rear wheel
+a = 1.767; % [m]  --------distance betwen COG and front tyre
+b = 1.353; % [m]  --------distance betwen COG and rear tyre
+L = a + b; % [m]  --------wheelbase
+IT = 606; % [kg m^2]  --------moment of inertia of the body
+l_f = 0.414; % [-]   --------load distrib over front wheel
+l_r = 0.586; % [-]   --------load distrib over rear wheel
 
-Cx = 0.8; % [-] --------longitudinal drag coefficient
+Cx = 0.725; % [-] --------longitudinal drag coefficient
 Cz = 1.5; % [-]  --------vertical (lift) drag coefficient
 rho_0 = 1.225; % [kg/m^3]   --------air density non-slipstream
 rho_1 = 0.8; % [kg/m^3]     --------air density slipstream
-Area = 2; % [m^2]   --------surface of vehicle on which the air goes through
+Area = 1; % [m^2]   --------surface of vehicle on which the air goes through
 
 distanceThreshold = 10; % [m]  --------distance below which slipstream is considered ON
-overlapThreshold = 1; % [m]  --------width below which slipstream is considered ON
+d_F= 0.8193*2; %[m] --------front track width
+overlapThreshold = d_F/2; % [m]  --------width below which slipstream is considered ON
 alpha = 0.7; % [-]  --------coefficient to change slipstream distance and widht during curves
 
 init_vel = 0.01; % [m/s]  --------initial velocity  
@@ -71,5 +73,5 @@ bankingThresholdShort = 40; % [m]  --------distance on the short straight
 
 C_fuel = 0.0000003; % [s^2/m^2] --------coefficient for fuel consumption
 
-slipstreamON = 1; % 1 if slipstream ON, 0 for OFF
-bankingON = 1; % 1 if slipstream ON, 0 for OFF
+slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
+bankingON = 0; % 1 if slipstream ON, 0 for OFF

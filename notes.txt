@@ -4,6 +4,17 @@ supponiamo di fare pit stop per cambio ruote?
 
 scia solo funzione della distanza e non della velocità
 
+picco strano per delta diverso da 0
+
+velocita = 0 all inizio
+
+yaw angle periodico
+
+ANGOLI PICCOLISSIMI
+
+simulazione aggiuntiva dubbi
+---------------------
+
 Simulazioni
 
 1a) andare dritto senza accelerare      Fx = 0 		steering 0 30s 20m/s
