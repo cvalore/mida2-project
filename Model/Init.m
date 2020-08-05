@@ -1,8 +1,8 @@
 %% Tyre setup
-a0 = 1.4;       % [-]       --------Shape factor
+a0 = 1.47;       % [-]       --------Shape factor
 a1 = 0;         % [1/kN]    --------Load influence on lateral friction coefficient (*1000)
-a2 = 2000;      % [-]       --------Lateral friction coefficient (*1000)
-a3 = 1100;      % [N/deg]   --------Change of stiffness with slip
+a2 = 2050;      % [-]       --------Lateral friction coefficient (*1000)
+a3 = 2500;      % [N/deg]   --------Change of stiffness with slip
 a4 = 10;        % [kN]      --------Change of progressivity of stiffness / load
 a5 = 0;         % [\%/deg/100]  --------Camber influence on stiffness
 a6 = 0;         % [-]       --------Curvature change with load
@@ -21,7 +21,7 @@ a17 = 0;        % [-]       -------- 	Curvature shift
 camber = 0;     % [rad] Camber angle
 
 b1 = 0;         % [1/kN]    --------Load influence on longitudinal friction coefficient (*1000)
-b2 = 2200;      % [-]       --------Longitudinal friction coefficient (*1000)
+b2 = 2080;      % [-]       --------Longitudinal friction coefficient (*1000)
 b11 = 0;
 b12 = 0;
 
@@ -61,7 +61,7 @@ d_F= 0.8193*2; %[m] --------front track width
 overlapThreshold = d_F/2; % [m]  --------width below which slipstream is considered ON
 alpha = 0.7; % [-]  --------coefficient to change slipstream distance and widht during curves
 
-init_vel = 0.01; % [m/s]  --------initial velocity  
+init_vel = 20; % [m/s]  --------initial velocity  
 init_x_pos = 0; % [m]  --------initial x position
 init_y_pos = -5.625; % [m]  --------initial y position
 init_yaw = 0; % [rad]  --------initial yaw angle
@@ -74,4 +74,4 @@ bankingThresholdShort = 40; % [m]  --------distance on the short straight
 C_fuel = 0.0000003; % [s^2/m^2] --------coefficient for fuel consumption
 
 slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
-bankingON = 0; % 1 if slipstream ON, 0 for OFF
+bankingON = 1; % 1 if banking ON, 0 for OFF
