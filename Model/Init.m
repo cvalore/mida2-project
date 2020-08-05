@@ -51,7 +51,7 @@ l_f = 0.414; % [-]   --------load distrib over front wheel
 l_r = 0.586; % [-]   --------load distrib over rear wheel
 
 Cx = 0.725; % [-] --------longitudinal drag coefficient
-Cz = 1.5; % [-]  --------vertical (lift) drag coefficient
+Cz = 0.778; % [-]  --------vertical (lift) drag coefficient
 rho_0 = 1.225; % [kg/m^3]   --------air density non-slipstream
 rho_1 = 0.8; % [kg/m^3]     --------air density slipstream
 Area = 1; % [m^2]   --------surface of vehicle on which the air goes through

@@ -89,7 +89,7 @@ for i = 2:length(Fzy)
     Dy           = Fzy(i)*muy_max(i);
     Cy           = 1+(1-2/pi*asin(Ky(i)*muy_max(i)*Fzy(i)/Dy));
     By           = Calpha(i)/Dy/Cy;
-    Ey           = (By*alpha_opt(i)-tan(pi/(2*Cy)))/(By*alpha_opt(i)-atan(By*alpha_opt(i)));
+    Ey           = (By*alpha_opt(i)-tan(pi/(2*Cy)))/(By*alpha_opt(i)-atan(By*alpha_opt(i)));    
 
     Fy = F(tan(alpha),Dy,Cy,By,Ey);
     

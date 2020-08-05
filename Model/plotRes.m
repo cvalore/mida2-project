@@ -1,5 +1,5 @@
 %% plot the results of the sim
-
+figure(1);
 track3d(1);
 hold on;
 
