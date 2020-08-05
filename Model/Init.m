@@ -49,6 +49,7 @@ L = a + b; % [m]  --------wheelbase
 IT = 606; % [kg m^2]  --------moment of inertia of the body
 l_f = 0.414; % [-]   --------load distrib over front wheel
 l_r = 0.586; % [-]   --------load distrib over rear wheel
+steering_ratio = 10; % [-] --------steering ratio
 
 Cx = 0.725; % [-] --------longitudinal drag coefficient
 Cz = 0.778; % [-]  --------vertical (lift) drag coefficient
