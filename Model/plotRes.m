@@ -1,6 +1,6 @@
 %% plot the results of the sim
 
-track3d();
+track3d(1);
 hold on;
 
 egoZ = zeros(size(out.egoX_Pos, 1));

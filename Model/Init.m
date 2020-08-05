@@ -33,7 +33,7 @@ K_wear = 1.3*10^-17; % [m^3 s^3 / kg^2] --------coefficient that determines the 
 TyreContactArea = 0.06; % [m^2] --------area of contact between tyre and asphalt
 %% Track parameters
 [roadS1, roadS2, roadS3, roadS4, curveRays, curveCenters, curveZ, zOffset, ...
-    xMax, xMin, yMax, yMin, bankingAngle] = track3d();
+    xMax, xMin, yMax, yMin, bankingAngle] = track3d(0);
 % create the track initializing all the coordinates and parameters for the
 % shape of the road
 
