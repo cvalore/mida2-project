@@ -1,12 +1,11 @@
-clear 
-close all
+%clear 
+%close all
 
 % Pacejka magic formula
 F = @(x,D,C,B,E) D*sin(C*atan(E*atan(B*x)+(1-E)*B*x));
 
 
-%% Front tires
-% Longitudinal force
+%% Longitudinal force
 lambda      = -1:0.01:1;           % [-]
 
 delta_mux_notch=0.1;                 %[-] additive value due to notch setting
@@ -40,6 +39,40 @@ legend('Location','southeast')
 xlabel('Longitudinal slip ratio [-]')
 ylabel('Longitudinal force [N]')
 
+% Longitudinal force
+lambda      = -1:0.01:1;           % [-]
+
+delta_mux_notch=0;                 %[-] additive value due to notch setting   
+
+Clambda     = [0,180000,345000,500000,680000,750000];         % [N]
+Fzx         = [0,1500,3000,4500,6000,7500];                   % [N]
+Kx          = [0.7,0.7,0.7,0.7,0.7,0.7];                      % [-]
+mux_max     = [2.275,2.21,2.145,2.08,2.015,1.95]+delta_mux_notch;             % [-]
+lambda_opt  = [0.12,0.12,0.11,0.10,0.09,0.08];                % [-]
+
+for i = 2:length(Fzx)
+    Dx           = Fzx(i)*mux_max(i);
+    Cx           = 1+(1-2/pi*asin(Kx(i)*mux_max(i)*Fzx(i)/Dx));
+    Bx           = Clambda(i)/Dx/Cx;
+    Ex           = (Bx*lambda_opt(i)-tan(pi/(2*Cx)))/(Bx*lambda_opt(i)-atan(Bx*lambda_opt(i)));
+
+    Fx = F(lambda,Dx,Cx,Bx,Ex);
+    
+    figure(1)
+    subplot 212
+    hold on, grid on, box on
+    plot(lambda,Fx,'DisplayName',['F_z = ' num2str(Fzx(i)) ' N'])
+end
+
+figure(1)
+subplot 212
+title('Rear tires - Pure longitudinal force')
+legend('Location','southeast')
+xlabel('Longitudinal slip ratio [-]')
+ylabel('Longitudinal force [N]')
+
+
+%% Lateral force
 
 % Lateral force
 alpha     = (-20:0.1:20)*pi/180;           % [rad]
@@ -60,52 +93,18 @@ for i = 2:length(Fzy)
 
     Fy = F(tan(alpha),Dy,Cy,By,Ey);
     
-    figure(1)
-    subplot 212
+    figure(2)
+    subplot 211
     hold on, grid on, box on
     plot(180/pi*alpha,Fy,'DisplayName',['F_z = ' num2str(Fzy(i)) ' N'])
 end
 
-figure(1)
-subplot 212
+figure(2)
+subplot 211
 title('Front tires - Pure lateral force')
 legend('Location','southeast')
 xlabel('Sideslip angle [deg]')
 ylabel('Lateral force [N]')
-
-%% Rear tires
-% Longitudinal force
-lambda      = -1:0.01:1;           % [-]
-
-delta_mux_notch=0;                 %[-] additive value due to notch setting   
-
-Clambda     = [0,180000,345000,500000,680000,750000];         % [N]
-Fzx         = [0,1500,3000,4500,6000,7500];                   % [N]
-Kx          = [0.7,0.7,0.7,0.7,0.7,0.7];                      % [-]
-mux_max     = [2.275,2.21,2.145,2.08,2.015,1.95]+delta_mux_notch;             % [-]
-lambda_opt  = [0.12,0.12,0.11,0.10,0.09,0.08];                % [-]
-
-for i = 2:length(Fzx)
-    Dx           = Fzx(i)*mux_max(i);
-    Cx           = 1+(1-2/pi*asin(Kx(i)*mux_max(i)*Fzx(i)/Dx));
-    Bx           = Clambda(i)/Dx/Cx;
-    Ex           = (Bx*lambda_opt(i)-tan(pi/(2*Cx)))/(Bx*lambda_opt(i)-atan(Bx*lambda_opt(i)));
-
-    Fx = F(lambda,Dx,Cx,Bx,Ex);
-    
-    figure(2)
-    subplot 211
-    hold on, grid on, box on
-    plot(lambda,Fx,'DisplayName',['F_z = ' num2str(Fzx(i)) ' N'])
-end
-
-figure(2)
-subplot 211
-title('Rear tires - Pure longitudinal force')
-legend('Location','southeast')
-xlabel('Longitudinal slip ratio [-]')
-ylabel('Longitudinal force [N]')
-
 
 % Lateral force
 alpha     = (-20:0.1:20)*pi/180;           % [rad]
