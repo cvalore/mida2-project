@@ -4,15 +4,40 @@ supponiamo di fare pit stop per cambio ruote?
 
 scia solo funzione della distanza e non della velocità
 
+
+
 picco strano per delta diverso da 0
 
 velocita = 0 all inizio
 
-yaw angle periodico
-
 ANGOLI PICCOLISSIMI
 
 simulazione aggiuntiva dubbi
+
+chiedere il significato del grafico di wheel steering plot..
+perche ci sono angoli angoli di steering così alti
+
+se ha senso per noi tenere mu costante o dobbiamo farlo dipendere dalla Fz, soprattutto nella lateral
+
+inerzia
+
+tyre contact area
+
+
+
+Salve, 
+abbiamo controllato i dati che ci ha fornito e abbiamo aggiustato alcuni dei nostri parametri per farli corrispondere ai suoi. 
+In particolare, abbiamo cambiato i parametri legati al veicolo relativi alla massa, distribuzione del peso, la distanza tra le ruote e il centro di massa, l'inerzia del veicolo e alcuni parametri aerodinamici.
+Abbiamo tuttavia alcuni dubbi rigurdanti i file che ci ha mandato:
+
+1) Per quanto rigurda lo script "wheel steering plot" non abbiamo ben chiaro il concetto alla base della simulazione. Inoltre abbiamo notato che gli angoli considerati sulle ascisse sono molto elevati, mentre nel nostro modello anche con degli angoli molto piccoli (es. 0.01 [rad]) il veicolo sterza seguendo una curva molto ampia.
+2) Abbiamo confrontato il nostro Pacejka con le figure da lei forniteci e lo abbiamo riadattato qualitativamente. Abbiamo notato però che a differenza del nostro Pacejka, voi usate mu funzione di F_z, mentre il nostro mu è costante.
+3) Nello script "vehicle parameters" abbiamo notato che ci sono momenti di inerzia Ixx, Iyy, Izz. Dal momento che abbiamo considerato solo le rotazioni sul piano, è corretto usare soltanto Izz?
+4) Tra i nostri parametri abbiamo "tyre_contact_area". Lei ha idea a che valore potrebbe corrispondere?
+
+La ringraziamo. 
+
+
 ---------------------
 
 Simulazioni
