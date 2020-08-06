@@ -1,4 +1,6 @@
 %% plot the results of the sim
+close all
+
 figure(1);
 track3d(1);
 hold on;

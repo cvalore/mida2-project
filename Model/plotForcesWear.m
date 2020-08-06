@@ -2,10 +2,12 @@ figure(6);
 subplot 311
 hold on, grid on, box on
 ylabel('F xR [N]');
-if size(out.logsout{1}.Values(:,1).Data, 1) < t_sim
+if size(out.logsout{1}.Values(:,1).Data, 1) < size(out.tout, 1)
     F_xR = zeros(1, size(out.tout, 1))+out.logsout{1}.Values.Data;
+    plot(out.tout', F_xR, 'DisplayName', 'F xR [N]', 'LineWidth', 2.1);
+else
+    plot(out.tout', out.logsout{1}.Values.Data, 'DisplayName', 'F xR [N]', 'LineWidth', 2.1);
 end
-plot(out.tout', F_xR, 'DisplayName', 'F xR [N]', 'LineWidth', 2.1);
 title('Longitudinal forces on Rear tyre');
 legend('Location','northwest');
 xlabel('Time [s]');

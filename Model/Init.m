@@ -33,7 +33,7 @@ K_wear = 1.3*10^-17; % [m^3 s^3 / kg^2] --------coefficient that determines the 
 TyreContactArea = 0.06; % [m^2] --------area of contact between tyre and asphalt
 %% Track parameters
 [roadS1, roadS2, roadS3, roadS4, curveRays, curveCenters, curveZ, zOffset, ...
-    xMax, xMin, yMax, yMin, bankingAngle] = track3d(0);
+    xMax, xMin, yMax, yMin, bankingAngle, longStraight, shortStraight, turn] = track3d(0);
 % create the track initializing all the coordinates and parameters for the
 % shape of the road
 
@@ -64,15 +64,17 @@ alpha = 0.7; % [-]  --------coefficient to change slipstream distance and widht 
 
 init_vel = 20; % [m/s]  --------initial velocity  
 init_x_pos = 0; % [m]  --------initial x position
-init_y_pos = -5.625; % [m]  --------initial y position
+init_y_pos = -15.5; % [m]  --------initial y position
 init_yaw = 0; % [rad]  --------initial yaw angle
 
-bankingThresholdLong = 110; % [m]  --------distance on the long straight
-                            %              from the curve below which the banking starts
-bankingThresholdShort = 40; % [m]  --------distance on the short straight
-                            %              from the curve below which the banking starts
+% bankingThresholdLong = 110; % [m]  --------distance on the long straight
+%                             %              from the curve below which the banking starts
+% bankingThresholdShort = 40; % [m]  --------distance on the short straight
+%                             %              from the curve below which the banking starts
 
 C_fuel = 0.0000003; % [s^2/m^2] --------coefficient for fuel consumption
 
 slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
 bankingON = 1; % 1 if banking ON, 0 for OFF
+
+load banking_indy;
