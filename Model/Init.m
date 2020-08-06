@@ -30,7 +30,8 @@ w2 = 1;         % [-]       --------wear param2
 
 %tyre wears param
 K_wear = 1.3*10^-17; % [m^3 s^3 / kg^2] --------coefficient that determines the wear
-TyreContactArea = 0.06; % [m^2] --------area of contact between tyre and asphalt
+TyreContactAreaFront = 0.072137; % [m^2] --------area of contact between front tyre and asphalt
+TyreContactAreaRear = 0.082758; % [m^2] --------area of contact between rear tyre and asphalt
 %% Track parameters
 [roadS1, roadS2, roadS3, roadS4, curveRays, curveCenters, curveZ, zOffset, ...
     xMax, xMin, yMax, yMin, bankingAngle, longStraight, shortStraight, turn] = track3d(0);
