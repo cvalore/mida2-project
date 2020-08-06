@@ -24,19 +24,17 @@ inerzia
 tyre contact area
 
 
-
-Salve, 
-abbiamo controllato i dati che ci ha fornito e abbiamo aggiustato alcuni dei nostri parametri per farli corrispondere ai suoi. 
-In particolare, abbiamo cambiato i parametri legati al veicolo relativi alla massa, distribuzione del peso, la distanza tra le ruote e il centro di massa, l'inerzia del veicolo e alcuni parametri aerodinamici.
-Abbiamo tuttavia alcuni dubbi rigurdanti i file che ci ha mandato:
-
-1) Per quanto rigurda lo script "wheel steering plot" non abbiamo ben chiaro il concetto alla base della simulazione. Inoltre abbiamo notato che gli angoli considerati sulle ascisse sono molto elevati, mentre nel nostro modello anche con degli angoli molto piccoli (es. 0.01 [rad]) il veicolo sterza seguendo una curva molto ampia.
-2) Abbiamo confrontato il nostro Pacejka con le figure da lei forniteci e lo abbiamo riadattato qualitativamente. Abbiamo notato però che a differenza del nostro Pacejka, voi usate mu funzione di F_z, mentre il nostro mu è costante.
-3) Nello script "vehicle parameters" abbiamo notato che ci sono momenti di inerzia Ixx, Iyy, Izz. Dal momento che abbiamo considerato solo le rotazioni sul piano, è corretto usare soltanto Izz?
-4) Tra i nostri parametri abbiamo "tyre_contact_area". Lei ha idea a che valore potrebbe corrispondere?
-
-La ringraziamo. 
-
+0 fino a 7743 
+da 7744 fino a 11290 aumenta la pendenza
+da 11291 fino a 13336 diminuisce la pendenza (valore -6,9000)
+da 13337 fino a 15937 aumenta la pendenza (valore massimo -9.2)
+da 15938 fino a 17638 diminuisce 
+da 17639 fino a 27750 vale 0
+da 17640 fino a 31394 cresce (e vale per molto tempo 9.2)
+da 31394 fino a 33433 diminuisce (vale per molto tempo 6.9)
+da 33434 fino a 36478 cresce (vale per molto tempo 9.2)
+da 36479 fino a 37782 diminuisce 
+da 37783 fino alla fine vale 0
 
 ---------------------
 
