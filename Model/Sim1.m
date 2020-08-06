@@ -16,9 +16,9 @@ end
 %Fx = get_param(Fx_input, 'Value');
 bankingON = 1;
 init_vel = 20;
-set_param('Model3/Controller/Fx_input', 'Value', '0');
-set_param('Model3/Controller/delta_input', 'Value', '0');
-%% set figures
+set_param('Model3/Controller/Fx_input[N]', 'Value', '100');
+set_param('Model3/Controller/delta_input[deg]', 'Value', '0');
+%% set automatic figures on-off
 set_param('Model3/POS_VEL', 'OpenAtSimulationStart', 'off');
 set_param('Model3/ANGLES', 'OpenAtSimulationStart', 'off');
 set_param('Model3/TYRE_SLIPS', 'OpenAtSimulationStart', 'off');
@@ -27,7 +27,8 @@ set_param('Model3/POWER_MASS', 'OpenAtSimulationStart', 'off');
 set_param('Model3/VEL_ACC_POWER', 'OpenAtSimulationStart', 'off');
 set_param('Model3/TYRE_WEAR', 'OpenAtSimulationStart', 'off');
 %% simulate
-set_param('Model3','Solver','ode15s','StopTime','30');
+t_sim = 30;
+set_param('Model3','Solver','ode15s','StopTime', int2str(t_sim));
 out = sim('Model3', 'ReturnWorkspaceOutputs', 'on');
-%% plot trajectory
-%plotRes;
+%% plot all
+plotRes_all;
