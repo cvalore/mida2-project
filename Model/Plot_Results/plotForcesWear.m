@@ -1,4 +1,4 @@
-figure(6);
+figure('WindowState', 'maximized')
 subplot 311
 hold on, grid on, box on
 ylabel('F xR [N]');
@@ -12,7 +12,7 @@ title('Longitudinal forces on Rear tyre');
 legend('Location','northwest');
 xlabel('Time [s]');
 
-figure(6);
+
 subplot 312
 hold on, grid on, box on
 yyaxis left
@@ -25,7 +25,7 @@ title('Lateral forces on Front and Rear tyres');
 legend('Location','northwest');
 xlabel('Time [s]');
 
-figure(6);
+
 subplot 313
 hold on, grid on, box on
 yyaxis left
@@ -37,3 +37,5 @@ plot(out.tout', out.logsout{9}.Values.Data, 'DisplayName', 'Rear wear [mm^3]', '
 title('Wear on Front and Rear tyres');
 legend('Location','northwest');
 xlabel('Time [s]');
+
+saveas(gcf, 'simX_force-wear.png');

@@ -121,6 +121,7 @@ if(show)
     surf(xC2, yC2, zC2);
     surf(xC3, yC3, zC3);
     surf(xC4, yC4, zC4);
+    alpha(0.3)
 
     %set(gca,'xtick',[-900:100:900])
     %set(gca,'ytick',[-100:100:800])
@@ -130,7 +131,7 @@ if(show)
     xlabel('X [m]');
     ylabel('Y [m]');
     zlabel('Z [m]');
-    title('Track');
+    title('Track and trajectory');
 
     hold off;
     hold on
