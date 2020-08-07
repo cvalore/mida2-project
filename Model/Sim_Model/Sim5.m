@@ -15,13 +15,16 @@ bankingON = 0;
 slipstreamON = 0;
 init_vel = 0.01;
 force = 1500;
-steer = 10;
+initsteer = 0;
+delay = 0.5;
+slope = 0.4;
 
 Fx_input_const = get_param('Model3/Controller/Fx_input_const[N]','PortHandles');
 Fx_input_step = get_param('Model3/Controller/Fx_input_step[N]','PortHandles');
 Fx_input_ramp = get_param('Model3/Controller/Fx_input_ramp[N]','PortHandles');
 delta_input_const = get_param('Model3/Controller/delta_input_const[deg]','PortHandles');
 delta_input_sin = get_param('Model3/Controller/delta_input_sin[deg]','PortHandles');
+delta_input_ramp = get_param('Model3/Controller/delta_input_ramp[deg]','PortHandles');
 fxInputBlock = get_param('Model3/Controller/Fx','PortHandles');
 fxInputBlockLine = get_param('Model3/Controller/Fx','LineHandles');
 deltaInputBlock = get_param('Model3/Controller/toRad','PortHandles');
@@ -32,12 +35,15 @@ set_param('Model3/Controller/Fx_input_const[N]', 'Commented', 'off');
 set_param('Model3/Controller/Fx_input_ramp[N]', 'Commented', 'on');
 set_param('Model3/Controller/Fx_input_step[N]', 'Commented', 'on');
 set_param('Model3/Controller/delta_input_sin[deg]', 'Commented', 'on');
-set_param('Model3/Controller/delta_input_const[deg]', 'Commented', 'off');
+set_param('Model3/Controller/delta_input_const[deg]', 'Commented', 'on');
+set_param('Model3/Controller/delta_input_ramp[deg]', 'Commented', 'off');
 add_line('Model3/Controller',Fx_input_const.Outport(1),fxInputBlock.Inport(1));
-add_line('Model3/Controller',delta_input_const.Outport(1),deltaInputBlock.Inport(1));
+add_line('Model3/Controller',delta_input_ramp.Outport(1),deltaInputBlock.Inport(1));
 
 set_param('Model3/Controller/Fx_input_const[N]', 'Value', num2str(force));
-set_param('Model3/Controller/delta_input_const[deg]', 'Value', num2str(steer));
+set_param('Model3/Controller/delta_input_ramp[deg]', 'slope', num2str(slope));
+set_param('Model3/Controller/delta_input_ramp[deg]', 'start', num2str(delay));
+set_param('Model3/Controller/delta_input_ramp[deg]', 'InitialOutput', num2str(initsteer));
 %% set automatic figures on-off
 set_param('Model3/POS_VEL', 'OpenAtSimulationStart', 'off');
 set_param('Model3/ANGLES', 'OpenAtSimulationStart', 'off');
@@ -47,8 +53,14 @@ set_param('Model3/POWER_MASS', 'OpenAtSimulationStart', 'off');
 set_param('Model3/VEL_ACC_POWER', 'OpenAtSimulationStart', 'off');
 set_param('Model3/TYRE_WEAR', 'OpenAtSimulationStart', 'off');
 %% simulate
-t_sim = 40;
+t_sim = 45;
 set_param('Model3','Solver','ode15s','StopTime', num2str(t_sim));
 out = sim('Model3', 'ReturnWorkspaceOutputs', 'on');
+
+deltaInputBlockLine = get_param('Model3/Controller/toRad','LineHandles');
+delete_line(deltaInputBlockLine.Inport(1));
+set_param('Model3/Controller/delta_input_ramp[deg]', 'Commented', 'on');
+set_param('Model3/Controller/delta_input_const[deg]', 'Commented', 'off');
+add_line('Model3/Controller',delta_input_const.Outport(1),deltaInputBlock.Inport(1));
 %% plot all
 plotRes_all;

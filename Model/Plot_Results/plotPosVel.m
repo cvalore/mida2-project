@@ -24,4 +24,4 @@ title('X - Y Velocities wrt inertial frame');
 legend('Location','northwest');
 xlabel('Time [s]');
 
-%saveas(gcf, 'simX_pos-vel.png');
+saveas(gcf, 'simX_pos-vel.png');
