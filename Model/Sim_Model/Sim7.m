@@ -26,10 +26,8 @@ PID_vel = get_param('Model3/Controller/PID_vel','PortHandles');
 delta_input_const = get_param('Model3/Controller/delta_input_const[deg]','PortHandles');
 delta_input_sin = get_param('Model3/Controller/delta_input_sin[deg]','PortHandles');
 delta_input_ramp = get_param('Model3/Controller/delta_input_ramp[deg]','PortHandles');
-rampa = get_param('Model3/Controller/delta_input_ramp[deg]', 'ObjectParameters');
 
 fxInputBlock = get_param('Model3/Controller/Fx','PortHandles');
-
 fxInputBlockLine = get_param('Model3/Controller/Fx','LineHandles');
 deltaInputBlock = get_param('Model3/Controller/toRad','PortHandles');
 deltaInputBlockLine = get_param('Model3/Controller/toRad','LineHandles');
@@ -46,6 +44,8 @@ set_param('Model3/Controller/delta_input_sin[deg]', 'Commented', 'on');
 set_param('Model3/Controller/delta_input_const[deg]', 'Commented', 'on');
 set_param('Model3/Controller/delta_input_ramp[deg]', 'Commented', 'off');
 set_param('Model3/Controller/v_ref[ms^-1]', 'Commented', 'off');
+set_param('Model3/Controller/error', 'Commented', 'off');
+set_param('Model3/Controller/PID_vel', 'Commented', 'off');
 
 add_line('Model3/Controller',PID_vel.Outport(1),fxInputBlock.Inport(1));
 add_line('Model3/Controller',delta_input_ramp.Outport(1),deltaInputBlock.Inport(1));
@@ -66,5 +66,18 @@ set_param('Model3/TYRE_WEAR', 'OpenAtSimulationStart', 'off');
 t_sim = 100;
 set_param('Model3','Solver','ode15s','StopTime', int2str(t_sim));
 out = sim('Model3', 'ReturnWorkspaceOutputs', 'on');
+
+fxInputBlockLine = get_param('Model3/Controller/Fx','LineHandles');
+delete_line(fxInputBlockLine.Inport(1));
+add_line('Model3/Controller',Fx_input_const.Outport(1),fxInputBlock.Inport(1));
+set_param('Model3/Controller/v_ref[ms^-1]', 'Commented', 'on');
+set_param('Model3/Controller/error', 'Commented', 'on');
+set_param('Model3/Controller/PID_vel', 'Commented', 'on');
+set_param('Model3/Controller/Fx_input_const[N]', 'Commented', 'off');
+deltaInputBlockLine = get_param('Model3/Controller/toRad','LineHandles');
+delete_line(deltaInputBlockLine.Inport(1));
+set_param('Model3/Controller/delta_input_ramp[deg]', 'Commented', 'on');
+set_param('Model3/Controller/delta_input_const[deg]', 'Commented', 'off');
+add_line('Model3/Controller',delta_input_const.Outport(1),deltaInputBlock.Inport(1));
 %% plot all
 plotRes_all;
