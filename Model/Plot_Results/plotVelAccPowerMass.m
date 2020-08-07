@@ -1,4 +1,4 @@
-figure(5);
+figure('WindowState', 'maximized');
 subplot 211
 hold on, grid on, box on
 yyaxis left
@@ -11,7 +11,7 @@ title('Vehicle velocity and acceleration');
 legend('Location','northwest');
 xlabel('Time [s]');
 
-figure(5);
+
 subplot 212
 hold on, grid on, box on
 yyaxis left
@@ -23,3 +23,5 @@ plot(out.tout', out.logsout{7}.Values(:,1).Data, 'DisplayName', 'Mass [kg]', 'Li
 title('Power output and mass of the vehicle');
 legend('Location','northwest');
 xlabel('Time [s]');
+
+saveas(gcf, 'simX_vel-power.png');
