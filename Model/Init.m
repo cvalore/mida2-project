@@ -32,6 +32,7 @@ w2 = 1;         % [-]       --------wear param2
 K_wear = 1.3*10^-17; % [m^3 s^3 / kg^2] --------coefficient that determines the wear
 TyreContactAreaFront = 0.072137; % [m^2] --------area of contact between front tyre and asphalt
 TyreContactAreaRear = 0.082758; % [m^2] --------area of contact between rear tyre and asphalt
+
 %% Track parameters
 [roadS1, roadS2, roadS3, roadS4, curveRays, curveCenters, curveZ, zOffset, ...
     xMax, xMin, yMax, yMin, bankingAngle, longStraight, shortStraight, turn] = track3d(0);
@@ -76,6 +77,6 @@ init_yaw = 0; % [rad]  --------initial yaw angle
 C_fuel = 0.0000003; % [s^2/m^2] --------coefficient for fuel consumption
 
 slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
-bankingON = 1; % 1 if banking ON, 0 for OFF
+bankingON = 0; % 1 if banking ON, 0 for OFF
 
 load banking_indy;
