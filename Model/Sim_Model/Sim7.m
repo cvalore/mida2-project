@@ -15,7 +15,8 @@ bankingON = 0;
 slipstreamON = 0;
 ref_vel = 50;
 init_vel = 30;
-slope = 3;
+slope = 3
+;
 start = 0;
 initial_output = 0;
 
