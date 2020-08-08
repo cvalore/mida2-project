@@ -13,3 +13,7 @@ plotTyreSlips;
 plotVelAccPowerMass;
 %% plot forces and wear
 plotForcesWear
+%% plot Fz on tyres
+plotFzTyres
+%% plot banking
+plotBanking
