@@ -1,75 +1,25 @@
-clc
-
-load('banking_indy');
-
-figure(1);
-subplot 311
+figure('WindowState', 'maximized')
+subplot 211
 hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,1:5001));
-title('Banking funzione dell ascissa curvilinea 0 - 500 m');
+yyaxis left
+ylabel('X [m]');
+plot(out.tout', out.logsout.find('BlockPath', 'Model1/x_pos[m]').getElement(1).Values(:,1).Data, ...
+    'DisplayName', 'X\_pos [m]', 'LineWidth', 2.1);
+yyaxis right
+ylabel('Y [m]');
+plot(out.tout', out.logsout.find('BlockPath', 'Model1/y_pos[m]').getElement(1).Values(:,1).Data, ...
+    'DisplayName', 'Y\_pos [m]', 'LineWidth', 2.1)
+title('X - Y Position wrt inertial frame');
+legend('Location','northwest');
+xlabel('Time [s]');
 
-figure(1)
-subplot 312
+subplot 212
 hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,5002:10001));
-title('Banking funzione dell ascissa curvilinea 501 - 1000 m');
+ylabel('BANKING ANGLE [deg]');
+plot(out.tout', out.logsout.find('BlockPath', 'Model1/gamma[deg]').getElement(1).Values(:,1).Data, ...
+    'DisplayName', 'gamma [deg]', 'LineWidth', 2.1);
+title('Road banking angle');
+legend('Location','northwest');
+xlabel('Time [s]');
 
-figure(1)
-subplot 313
-hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,10002:15001));
-title('Banking funzione dell ascissa curvilinea 1001 - 1500 m');
-
-figure(2)
-subplot 311
-hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,15002:20001));
-title('Banking funzione dell ascissa curvilinea 1501 - 2000 m');
-
-figure(2)
-subplot 312
-hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,20002:25001));
-title('Banking funzione dell ascissa curvilinea 2001 - 2500 m');
-
-figure(2)
-subplot 313
-hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,25002:30001));
-title('Banking funzione dell ascissa curvilinea 2501 - 3000 m');
-
-figure(3)
-subplot 311
-hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,30002:35001));
-title('Banking funzione dell ascissa curvilinea 3001 - 3500 m');
-
-figure(3)
-subplot 312
-hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,35002:40001));
-title('Banking funzione dell ascissa curvilinea 3501 - 4000 m');
-
-figure(3)
-subplot 313
-hold on, grid on, box on
-xlabel('Ascissa curvilinea [dm]');
-ylabel('Banking [deg]');
-plot(banking_indy(:,40002:40234));
-title('Banking funzione dell ascissa curvilinea 4001 - 4023.3 m');
+saveas(gcf, 'simX_banking.png');
