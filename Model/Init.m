@@ -64,9 +64,9 @@ d_F= 0.8193*2; %[m] --------front track width
 overlapThreshold = d_F/2; % [m]  --------width below which slipstream is considered ON
 alpha = 0.7; % [-]  --------coefficient to change slipstream distance and widht during curves
 
-init_vel = 20; % [m/s]  --------initial velocity  
-init_x_pos = 0; % [m]  --------initial x position
-init_y_pos = -15.5; % [m]  --------initial y position
+init_vel = 30; % [m/s]  --------initial velocity  
+init_x_pos = -503; % [m]  --------initial x position
+init_y_pos = -6.75; % [m]  --------initial y position
 init_yaw = 0; % [rad]  --------initial yaw angle
 
 % bankingThresholdLong = 110; % [m]  --------distance on the long straight

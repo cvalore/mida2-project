@@ -63,4 +63,4 @@ set_param('Model1/Controller/delta_input_ramp[deg]', 'Commented', 'on');
 set_param('Model1/Controller/delta_input_const[deg]', 'Commented', 'off');
 add_line('Model1/Controller',delta_input_const.Outport(1),deltaInputBlock.Inport(1));
 %% plot all
-plotRes_all;
+plotRes_all(1, out);

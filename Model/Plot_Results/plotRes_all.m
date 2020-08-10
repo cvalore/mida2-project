@@ -1,19 +1,20 @@
+function plotRes_all(model_index, out)
 %% close others
 close all
 clc
 %% plot trajectory
-plotRes;
+plotRes(model_index, out);
 %% plot position and velocities
-plotPosVel;
+plotPosVel(model_index, out);
 %% plot yaw angle, yaw rate and body slip angle
-plotAngles;
+plotAngles(model_index, out);
 %% plot tyres slip angles
-plotTyreSlips;
+plotTyreSlips(model_index, out);
 %% plot vel acc and power
-plotVelAccPowerMass;
+plotVelAccPowerMass(model_index, out);
 %% plot forces and wear
-plotForcesWear
+plotForcesWear(model_index, out);
 %% plot Fz on tyres
-plotFzTyres
+plotFzTyres(model_index, out);
 %% plot banking
-plotBanking
+plotBanking(model_index, out);

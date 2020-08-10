@@ -56,4 +56,4 @@ t_sim = 30;
 set_param('Model1','Solver','ode15s','StopTime', num2str(t_sim));
 out = sim('Model1', 'ReturnWorkspaceOutputs', 'on');
 %% plot all
-plotRes_all;
+plotRes_all(1, out);
