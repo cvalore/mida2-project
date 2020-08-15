@@ -1,3 +1,5 @@
+global trajec;
+
 %% initial setup
 radius_second_lane = 262.89;
 curve_lenght = radius_second_lane * 2 * pi/4;
