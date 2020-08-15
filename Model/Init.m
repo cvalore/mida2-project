@@ -66,7 +66,7 @@ alpha = 0.7; % [-]  --------coefficient to change slipstream distance and widht 
 
 init_vel = 30; % [m/s]  --------initial velocity  
 init_x_pos = -503; % [m]  --------initial x position
-init_y_pos = -6.75; % [m]  --------initial y position
+init_y_pos = -7.95; % [m]  --------initial y position
 init_yaw = 0; % [rad]  --------initial yaw angle
 
 % bankingThresholdLong = 110; % [m]  --------distance on the long straight

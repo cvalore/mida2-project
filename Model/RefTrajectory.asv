@@ -152,8 +152,8 @@ yaw8 = angles + 270;
 %% matrix definition
 trajec = ones(5, size(s_curv, 2));
 trajec(1, :) = s_curv;
-trajec(2, :) = [x_coord_longstraight1 x_coord_firstcurve x_coord_shortstraight1 x_coord_secondcurve x_coord_longstraight1 x_coord_thirdcurve x_coord_shortstraight2 x_coord_fourthcurve];
-trajec(3, :) = [y_coord_longstraight1 y_coord_firstcurve y_coord_shortstraight1 y_coord_secondcurve y_coord_longstraight1 y_coord_thirdcurve y_coord_shortstraight2 y_coord_fourthcurve];
+trajec(2, :) = [x_coord_longstraight1 x_coord_firstcurve x_coord_shortstraight1 x_coord_secondcurve x_coord_longstraight1 x_coord_thirdcurve x_coord_shortstraight2 x_coord8];
+trajec(3, :) = [y_coord1 y_coord2 y_coord3 y_coord4 y_coord5 y_coord6 y_coord7 y_coord8];
 trajec(4, :) = [yaw1 yaw2 yaw3 yaw4 yaw5 yaw6 yaw7 yaw8];
 trajec(5, :) = [v_profile_half v_profile_half];
 
