@@ -1,3 +1,10 @@
+global roadS1;
+global roadS2;
+global roadS3;
+global roadS4;
+global curveRays;
+global curveCenters;
+
 %% Tyre setup
 a0 = 1.47;       % [-]       --------Shape factor
 a1 = 0;         % [1/kN]    --------Load influence on lateral friction coefficient (*1000)
@@ -34,6 +41,7 @@ TyreContactAreaFront = 0.072137; % [m^2] --------area of contact between front t
 TyreContactAreaRear = 0.082758; % [m^2] --------area of contact between rear tyre and asphalt
 
 %% Track parameters
+
 [roadS1, roadS2, roadS3, roadS4, curveRays, curveCenters, curveZ, zOffset, ...
     xMax, xMin, yMax, yMin, bankingAngle, longStraight, shortStraight, turn] = track3d(0);
 % create the track initializing all the coordinates and parameters for the

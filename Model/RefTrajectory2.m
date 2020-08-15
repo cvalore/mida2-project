@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 % %% initial setup
 % radius_second_lane = 262.89;
 % curve_lenght = radius_second_lane * 2 * pi/4;
@@ -61,6 +62,9 @@
 % trajec(4, :) = [yaw1 yaw2 yaw3 yaw4 yaw5 yaw6 yaw7 yaw8];
 % trajec(5, :) = [v_profile_half v_profile_half];
 
+=======
+global trajec;
+>>>>>>> 63ae73364ca97508dc8727a6fbfe5a139c989d70
 
 %% initial setup
 radius_second_lane = 262.89;
