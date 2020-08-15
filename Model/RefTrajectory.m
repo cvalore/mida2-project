@@ -74,17 +74,32 @@ right_angle = 90;
 s_curv = 0:step_size:total_length;
 
 %% x_y_coord
-x_coord_longstraight1 = curveCenters(4,1)+step_size:step_size:curveCenters(4,1)-step_size;
+x_coord_longstraight1 = curveCenters(4,1)+step_size:step_size:curveCenters(1,1)-step_size;
 y_coord_longstraight1 = ones(1, length(x_coord_longstraight1))*(curveCenters(1,2)-radius_second_lane);
 
-x_coord_longstraight2 = curveCenters(2,1)-step_size:step_size:curveCenters(2,1)+step_size;
+x_coord_longstraight2 = curveCenters(2,1)-step_size:-step_size:curveCenters(3,1)+step_size;
 y_coord_longstraight2 = ones(1, length(x_coord_longstraight2))*(curveCenters(2,2)+radius_second_lane);
 
 y_coord_shortstraight1 = curveCenters(1,2)+step_size:step_size:curveCenters(2,2)-step_size;
 x_coord_shortstraight1 = ones(1, length(y_coord_shortstraight1))*curveCenters(1,1)+radius_second_lane;
 
 y_coord_shortstraight2 = curveCenters(3,2)-step_size:-step_size:curveCenters(4,2)+step_size;
-x_coord_shortstraight2 = ones(1, length(y_coord7))*curveCenters(4,1)-radius_second_lane;
+x_coord_shortstraight2 = ones(1, length(y_coord_shortstraight2))*curveCenters(4,1)-radius_second_lane;
+
+% y_coord3 = 256.24:0.1:457.04;
+% x_coord3 = ones(1, length(y_coord3))*765.89;
+% 
+% y_coord7 = 457.04:-0.1:256.24;
+% x_coord7 = ones(1, length(y_coord7))*(-765.89);
+
+%% debug
+% length(x_coord_longstraight1) 
+% length(x_coord_shortstraight1) 
+% length(x_coord_shortstraight2) 
+% length(x_coord_firstcurve)
+% length(x_coord_secondcurve) 
+% length(x_coord_thirdcurve) 
+% length(x_coord_fourthcurve)       
 
 length_firstcurve = pi*radius_second_lane/2;
 length_firstcurve = length_firstcurve/step_size;
@@ -152,8 +167,8 @@ yaw8 = angles + 270;
 %% matrix definition
 trajec = ones(5, size(s_curv, 2));
 trajec(1, :) = s_curv;
-trajec(2, :) = [x_coord_longstraight1 x_coord_firstcurve x_coord_shortstraight1 x_coord_secondcurve x_coord_longstraight1 x_coord_thirdcurve x_coord_shortstraight2 x_coord_fourthcurve];
-trajec(3, :) = [y_coord_longstraight1 y_coord_firstcurve y_coord_shortstraight1 y_coord_secondcurve y_coord_longstraight1 y_coord_thirdcurve y_coord_shortstraight2 y_coord_fourthcurve];
+trajec(2, :) = [x_coord_longstraight1 x_coord_firstcurve x_coord_shortstraight1 x_coord_secondcurve x_coord_longstraight2 x_coord_thirdcurve x_coord_shortstraight2 x_coord_fourthcurve];
+trajec(3, :) = [y_coord_longstraight1 y_coord_firstcurve y_coord_shortstraight1 y_coord_secondcurve y_coord_longstraight2 y_coord_thirdcurve y_coord_shortstraight2 y_coord_fourthcurve];
 trajec(4, :) = [yaw1 yaw2 yaw3 yaw4 yaw5 yaw6 yaw7 yaw8];
 trajec(5, :) = [v_profile_half v_profile_half];
 
