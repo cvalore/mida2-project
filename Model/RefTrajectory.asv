@@ -61,7 +61,6 @@
 % trajec(4, :) = [yaw1 yaw2 yaw3 yaw4 yaw5 yaw6 yaw7 yaw8];
 % trajec(5, :) = [v_profile_half v_profile_half];
 
-global trajec;
 
 %% initial setup
 radius_second_lane = 262.89;
@@ -93,14 +92,14 @@ x_coord_shortstraight2 = ones(1, length(y_coord_shortstraight2))*curveCenters(4,
 % y_coord7 = 457.04:-0.1:256.24;
 % x_coord7 = ones(1, length(y_coord7))*(-765.89);
 
-%% debug
-% length(x_coord_longstraight1) 
-% length(x_coord_shortstraight1) 
-% length(x_coord_shortstraight2) 
-% length(x_coord_firstcurve)
-% length(x_coord_secondcurve) 
-% length(x_coord_thirdcurve) 
-% length(x_coord_fourthcurve)       
+porc = length(x_coord_longstraight1) 
+length(x_coord_longstraight2) 
+length(x_coord_shortstraight1) 
+length(x_coord_shortstraight2) 
+length(x_coord_firstcurve)
+length(x_coord_secondcurve) 
+length(x_coord_thirdcurve) 
+length(x_coord_fourthcurve)       
 
 length_firstcurve = pi*radius_second_lane/2;
 length_firstcurve = length_firstcurve/step_size;
@@ -151,6 +150,7 @@ v2 = v2_start:pace2:v2_end;
 v3 = v3_start:pace3:v3_end;
 v4 = v4_start:pace4:v4_end;
 v5 = v5_start:pace5:v5_end;
+length(v1) + length(v2) + length(v3) + length(v4) + length(v5)
 v_profile_half = [v1 v2 v3_start v3 v4_start v4 v5_start v5]; 
 
 %% yaw_values
@@ -171,3 +171,5 @@ trajec(2, :) = [x_coord_longstraight1 x_coord_firstcurve x_coord_shortstraight1 
 trajec(3, :) = [y_coord_longstraight1 y_coord_firstcurve y_coord_shortstraight1 y_coord_secondcurve y_coord_longstraight2 y_coord_thirdcurve y_coord_shortstraight2 y_coord_fourthcurve];
 trajec(4, :) = [yaw1 yaw2 yaw3 yaw4 yaw5 yaw6 yaw7 yaw8];
 trajec(5, :) = [v_profile_half v_profile_half];
+
+% 
