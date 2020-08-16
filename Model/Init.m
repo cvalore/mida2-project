@@ -2,7 +2,7 @@ global roadS1;
 global roadS2;
 global roadS3;
 global roadS4;
-global curveRays;
+% global curveRays;
 global curveCenters;
 
 %% Tyre setup
@@ -88,3 +88,7 @@ slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
 bankingON = 0; % 1 if banking ON, 0 for OFF
 
 load banking_indy;
+
+RefTrajectory;
+
+Controller;
