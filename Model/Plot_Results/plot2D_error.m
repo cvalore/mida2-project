@@ -1,13 +1,14 @@
+function plot2D_error(model_index, out)
+
+global trajec;
+
+close all
 clc
 
-hold on, box on, grid on
-axis equal
+% hold on, box on, grid on
+% figure('WindowState', 'maximized');
 
-model = 'Model2';
-
-plot(out.logsout.find('BlockPath', strcat(model, '/x_pos[m]')).getElement(1).Values(:,1).Data, ...
-     out.logsout.find('BlockPath', strcat(model, '/y_pos[m]')).getElement(1).Values(:,1).Data, ...
-     'b-', 'LineWidth', 1.25);
+plotRes_2d(model_index, out);
 
 for i=1:5:size(out.debugTest_index.Data, 1)
    hold on
