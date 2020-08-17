@@ -89,6 +89,6 @@ bankingON = 0; % 1 if banking ON, 0 for OFF
 
 load banking_indy;
 
-RefTrajectory_2;
+RefTrajectory;_
 
 Controller;
