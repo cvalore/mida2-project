@@ -72,7 +72,7 @@ d_F= 0.8193*2; %[m] --------front track width
 overlapThreshold = d_F/2; % [m]  --------width below which slipstream is considered ON
 alpha = 0.7; % [-]  --------coefficient to change slipstream distance and widht during curves
 
-init_vel = 30; % [m/s]  --------initial velocity  
+init_vel = 0.01; % [m/s]  --------initial velocity  
 init_x_pos = -503; % [m]  --------initial x position
 init_y_pos = -6.75; % [m]  --------initial y position
 init_yaw = 0; % [rad]  --------initial yaw angle
@@ -85,11 +85,11 @@ init_yaw = 0; % [rad]  --------initial yaw angle
 C_fuel = 0.0000003; % [s^2/m^2] --------coefficient for fuel consumption
 
 slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
-bankingON = 0; % 1 if banking ON, 0 for OFF
+bankingON = 1; % 1 if banking ON, 0 for OFF
 
 load banking_indy;
 
-RefTrajectory_2;
+%RefTrajectory_2;
 
 Controller;
  

@@ -1,2 +1,2 @@
-lookahead = 30;
-errorThreshold = 15;
+lookahead = 18;
+errorThreshold = 25;
