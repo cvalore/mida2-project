@@ -84,6 +84,32 @@ FyF_ = -KF * alfaF;
 FyR_ = -KR * alfaR;
 
 %% final model
-
 fLIN_final = subs(fLIN);
 fLIN_final_simplified = simplify(fLIN_final);
+
+x1dot = fLIN_final_simplified(1,1);
+x2dot = fLIN_final_simplified(2,1);
+x3dot = fLIN_final_simplified(3,1);
+x4dot = fLIN_final_simplified(4,1);
+x5dot = fLIN_final_simplified(5,1);
+x6dot = fLIN_final_simplified(6,1);
+
+m_fuel = 58; % [kg]  --------mass of the fuel
+m_vehicle = 590; % [kg]  --------mass of only the vehicle
+m_passenger = 70; % [kg]  --------mass of the passenger
+mT = m_vehicle + m_fuel + m_passenger; % [kg]  --------total mass
+g = 9.81; % [m/s^2]  --------gravity acceleration
+a = 1.767; % [m]  --------distance betwen COG and front tyre
+b = 1.353; % [m]  --------distance betwen COG and rear tyre
+IT = 606; % [kg m^2]  --------moment of inertia of the body 
+Cx = 0.725; % [-] --------longitudinal drag coefficient
+rho_0 = 1.225; % [kg/m^3]   --------air density non-slipstream
+Area = 1; % [m^2]   --------surface of vehicle on which the air goes through
+KF = 70000; % [kg*m*rad^-1*s^-2]   --------front cornering stiffnes coefficient
+KR = 70000; % [kg*m*rad^-1*s^-2]   --------rear cornering stiffnes coefficient
+load banking_indy;
+[roadS1, roadS2, roadS3, roadS4, curveRays, curveCenters, curveZ, zOffset, ...
+    xMax, xMin, yMax, yMin, bankingAngle, longStraight, shortStraight, turn] = track3d(0);
+
+% plot(out.tyre_alfa.Data, out.tyre_Fypaj1.Data, 'r--', out.tyre_alfa.Data, 70000*out.tyre_alfa.Data, 'b-'), xlim([-1,1]), ylim([-9000,9000])
+
