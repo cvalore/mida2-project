@@ -1,4 +1,4 @@
-function plotLateralController(model_index, out)
+hefunction plotLateralController(model_index, out)
 
 model = strcat('Model', int2str(model_index));
 
