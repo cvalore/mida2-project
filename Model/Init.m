@@ -92,6 +92,11 @@ slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
 bankingON = 1; % 1 if banking ON, 0 for OFF
 
 load banking_indy;
+curvature_test = -banking_indy;
+curvature_test(find(curvature_test == 6.9)) = 0;
+curvature_test(31394:32035) = linspace(9.2,0,32035-31394+1);
+curvature_test(33431:34128) = linspace(0,9.2,34128-33431+1);
+curvature_test = curvature_test/(268.89*9.2);
 
 %RefTrajectory_2;
 
