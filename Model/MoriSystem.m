@@ -113,3 +113,24 @@ Gsw = tf([(2*pi*4.1)^2],[1 0.203*2*pi*4.1 (2*pi*4.1)^2],'InputDelay', 0.08)
 Reg = tf([0.0506606 0.0063662 0.0002], [1/(4*pi) 1 0])
 Ls = Reg*Gsw*Gecg
 
+%% prova 
+% rho_t = [linspace(0,0,15) linspace(0,1/256,5) linspace(1/256, 1/256, 10) linspace(1/256, 0, 5) linspace(0,0,10)];
+% Vx_max = sqrt(9.81/(1/256));
+% r_ref = rho_t * Vx_max;
+% 
+% figure(1)
+% plot(linspace(0,45,45), r_ref);
+% title('yaw rate ref')
+% 
+% Y = fft(r_ref);
+% L = 45;
+% Fs = 10;
+% P2 = abs(Y/L);
+% P1 = P2(1:L/2+1);
+% P1(2:end-1) = 2*P1(2:end-1);
+% figure(2)
+% f = Fs*(0:(L/2))/L;
+% plot(f,P1)
+% xlabel('f (Hz)')
+% ylabel('|P1(f)|')
+% title('Magnitude')
