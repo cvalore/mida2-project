@@ -134,3 +134,16 @@ Ls = Reg*Gsw*Gecg
 % xlabel('f (Hz)')
 % ylabel('|P1(f)|')
 % title('Magnitude')
+%%
+% figure(1)
+% plot(trajec(1,:), trajec(5,:))
+% title('Vel ref')
+% N = size(trajec, 2);
+% Fs = 20*10^-5;
+% figure(2)
+% y = abs(fft(trajec(5,:)));
+% y = y(1:N/2);
+% f = Fs*(0:N/2-1)/N;
+% plot(f, y)
+% xlabel('Frequency (Hz)')
+% ylabel('Amplitude')
