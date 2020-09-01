@@ -9,7 +9,7 @@ ylabel('F yF [N]');
 
 F_xF = out.logsout.find('BlockPath', strcat(model, '/F_xF[N]')).getElement(1).Values(:,1).Data;
 F_yF = out.logsout.find('BlockPath', strcat(model, '/F_yF[N]')).getElement(1).Values(:,1).Data;
-for i=1:20:size(out.tout, 1)
+for i=1:1:size(out.tout, 1)
     scatter(F_xF(i), F_yF(i), 15);
 end
 
@@ -36,7 +36,7 @@ ylabel('F yR [N]');
 
 F_xR = out.logsout.find('BlockPath', strcat(model, '/F_xR[N]')).getElement(1).Values(:,1).Data;
 F_yR = out.logsout.find('BlockPath', strcat(model, '/F_yR[N]')).getElement(1).Values(:,1).Data;
-for i=1:20:size(out.tout, 1)
+for i=1:1:size(out.tout, 1)
     scatter(F_xR(i), F_yR(i), 15);
 end
 
