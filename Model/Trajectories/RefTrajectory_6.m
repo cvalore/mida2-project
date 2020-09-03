@@ -14,6 +14,7 @@ s_curv = 0:step_size:total_length;
 %% x_y_coord
 x_coord_longstraight1 = curveCenters(4,1)+step_size:step_size:curveCenters(1,1)-step_size;
 y_coord_longstraight1 = ones(1, length(x_coord_longstraight1))*(curveCenters(1,2)-radius_second_lane);
+init_y_pos = y_coord_longstraight1(1,1);
 
 x_coord_longstraight2 = curveCenters(2,1)-step_size:-step_size:curveCenters(3,1)+step_size;
 y_coord_longstraight2 = ones(1, length(x_coord_longstraight2))*(curveCenters(2,2)+radius_second_lane);
