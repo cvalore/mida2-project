@@ -77,7 +77,7 @@ overlapThreshold = d_F/2; % [m]  --------width below which slipstream is conside
 alpha = 0.7; % [-]  --------coefficient to change slipstream distance and widht during curves
 
 init_vel = 65; % [m/s]  --------initial velocity  
-init_x_pos = -503; % [m]  --------initial x position
+init_x_pos = -250; % [m]  --------initial x position
 init_y_pos = 0; % [m]  --------initial y position
 init_yaw = 0; % [rad]  --------initial yaw angle
 
@@ -98,7 +98,5 @@ load banking_indy;
 % curvature_test(33431:34128) = linspace(0,9.2,34128-33431+1);
 % curvature_test = curvature_test/(268.89*9.2);   
 
-%RefTrajectory_2;
-
-Controller;
+RefTrajectory_6;
  

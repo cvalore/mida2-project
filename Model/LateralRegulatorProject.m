@@ -122,10 +122,13 @@ end
 % Reg = tf([35.708 4.4885 0.140975], [1 197.07 2319.17 0]); %doppio zero in 0.01, polo in 0 e 2, polo in 29.4 per smorzare rumore, gain 6*10-5
 
 % usato in model 3 - official
-Reg = tf(1.5*[0.3852 0.0484 0.0016], [1 12.57 0]);
+% Reg = tf(1.5*[0.3852 0.0484 0.0016], [1 12.57 0]);
+
+% prova con doppio integratore e polo aggiuntivo
+% Reg = tf([3.0396 0.381956 0.0119992], [1 100 0 0]);
 
 % prova con doppio integratore
-Reg = tf([3.0396 0.381956 0.0119992], [1 100 0 0]);
+Reg = tf([0.030394 0.00381931 0.000119984], [1 0 0]);
 
 % Reg = tf([0.041667], [1]) * tf([1 0.06], [1 0]) * tf([1 0.06], [1 2.5]);
 %%
