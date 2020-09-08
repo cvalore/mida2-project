@@ -1,0 +1,19 @@
+Con LA:
+
+\text{Transfer function from steering angle $\delta$ and lookahead error $e_{la}$}
+\\\\G_{e\_la}(s) = \frac{Cf*Vx}{k*s^2} * \frac{N(s)}{D(s)}
+\\\\
+N(s) = (l_f m V_x^2 + J_z k V_x)s^2 + (C_r V_x l_r + C_r l_f V_x + C_r k l_r^2 + C_r k l_f l_r)s + (C_r k V_x l_r + C_r k l_f V_x)
+
+\\\\
+D(s) = (J_z V_x^2 m)s^2 + (C_f J_z V_x + C_r J_z V_x + C_f V_x l_f^2 m + C_r V_x l_r^2 m)s + (C_f C_r l_f^2 + C_f C_r l_r^2 - C_f V_x^2 l_f m + C_r V_x^2 l_r m + 2 C_f C_r l_f l_r)
+
+
+
+Ksched(Vx) = Gecg^-1(0) = (k*(m*Vx^2*(Cr*lr - Cf*lf) + Cf*Cr*(lf+lr)))/(Cf*Cr*Vx^2*k*(lf + lr))
+
+
+
+
+
+C = -Gecg^-1(0)*Grho(0) = (m*Vx^2*(Cr*lr - Cf*lf) + Cf*Cr*(lf+lr)^2)/(Cf*Cr*(lf + lr))
