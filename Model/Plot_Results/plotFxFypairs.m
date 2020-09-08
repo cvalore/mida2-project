@@ -14,14 +14,14 @@ for i=1:1:size(out.tout, 1)
 end
 
 F_xmaxF = out.logsout.find('BlockPath', strcat(model, '/DynamicModel/F_xmaxF2')).getElement(1).Values(:,1).Data;
-F_ymaxF = out.logsout.find('BlockPath', strcat(model, '/DynamicModel/Calculate Peak F')).getElement(1).Values(:,1).Data;
+F_ymaxF = out.logsout.find('Name', 'FymaxF').getElement(1).Values(:,1).Data;
 x_min = -max(F_xmaxF)-100;
 x_max = +max(F_xmaxF)+100;
 y_min = -max(F_ymaxF)-100;
 y_max = +max(F_ymaxF)+100;
 xlim([x_min, x_max]);
 ylim([y_min, y_max])
-for i=1:200:size(F_xmaxF, 1)
+for i=1:size(F_xmaxF, 1)
     x = [-F_xmaxF(i):F_xmaxF(i)];
     plot(x, F_ymaxF(i)*sqrt(1-(x/F_xmaxF(i)).^2), 'r-');
     plot(x, -F_ymaxF(i)*sqrt(1-(x/F_xmaxF(i)).^2), 'r-');
@@ -36,19 +36,19 @@ ylabel('F yR [N]');
 
 F_xR = out.logsout.find('BlockPath', strcat(model, '/F_xR[N]')).getElement(1).Values(:,1).Data;
 F_yR = out.logsout.find('BlockPath', strcat(model, '/F_yR[N]')).getElement(1).Values(:,1).Data;
-for i=1:1:size(out.tout, 1)
+for i=1:10:size(out.tout, 1)
     scatter(F_xR(i), F_yR(i), 15);
 end
 
 F_xmaxR = out.logsout.find('BlockPath', strcat(model, '/DynamicModel/F_xmaxR2')).getElement(1).Values(:,1).Data;
-F_ymaxR = out.logsout.find('BlockPath', strcat(model, '/DynamicModel/Calculate Peak R')).getElement(1).Values(:,1).Data;
+F_ymaxR = out.logsout.find('Name', 'FymaxR').getElement(1).Values(:,1).Data;
 x_min = -max(F_xmaxR)-100;
 x_max = +max(F_xmaxR)+100;
 y_min = -max(F_ymaxR)-100;
 y_max = +max(F_ymaxR)+100;
 xlim([x_min, x_max]);
 ylim([y_min, y_max])
-for i=1:200:size(F_xmaxR, 1)
+for i=1:10:size(F_xmaxR, 1)
     x = [-F_xmaxR(i):F_xmaxR(i)];
     plot(x, F_ymaxR(i)*sqrt(1-(x/F_xmaxR(i)).^2), 'r-');
     plot(x, -F_ymaxR(i)*sqrt(1-(x/F_xmaxR(i)).^2), 'r-');
