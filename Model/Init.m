@@ -36,7 +36,7 @@ w1 = 10^(-4.7); % [-]       --------wear param1
 w2 = 1;         % [-]       --------wear param2
 
 %tyre wears param
-K_wear = 1.3*10^-17; % [m^3 s^3 / kg^2] --------coefficient that determines the wear
+K_wear = 2.3*10^-17;   % [m^3 s^3 / kg^2] --------coefficient that determines the wear
 TyreContactAreaFront = 0.072137; % [m^2] --------area of contact between front tyre and asphalt
 TyreContactAreaRear = 0.082758; % [m^2] --------area of contact between rear tyre and asphalt
 
