@@ -60,11 +60,9 @@ L = a + b; % [m]  --------wheelbase
 IT = 606; % [kg m^2]  --------moment of inertia of the body
 l_f = 0.414; % [-]   --------load distrib over front wheel
 l_r = 0.586; % [-]   --------load distrib over rear wheel
-steering_ratio = 10; % [-] --------steering ratio
 
 Cf = 100000; % [..] --------Cornering stiffnes for linearization (front)
 Cr = 110000; % [..] --------Cornering stiffnes for linearization (rear)
-Vx = 55; % [m/s^2] --------Velocity of linearization (operational point)
 
 Cx = 0.725; % [-] --------longitudinal drag coefficient
 Cz = 0.778; % [-]  --------vertical (lift) drag coefficient
@@ -72,32 +70,17 @@ rho_0 = 1.225; % [kg/m^3]   --------air density non-slipstream
 rho_1 = 0.8; % [kg/m^3]     --------air density slipstream
 Area = 1; % [m^2]   --------surface of vehicle on which the air goes through
 
-distanceThreshold = 10; % [m]  --------distance below which slipstream is considered ON
-d_F= 0.8193*2; %[m] --------front track width
-overlapThreshold = d_F/2; % [m]  --------width below which slipstream is considered ON
-alpha = 0.7; % [-]  --------coefficient to change slipstream distance and widht during curves
-
 init_vel = 65; % [m/s]  --------initial velocity  
 init_x_pos = -250; % [m]  --------initial x position
 init_y_pos = 0; % [m]  --------initial y position
 init_yaw = 0; % [rad]  --------initial yaw angle
-
-% bankingThresholdLong = 110; % [m]  --------distance on the long straight
-%                             %              from the curve below which the banking starts
-% bankingThresholdShort = 40; % [m]  --------distance on the short straight
-%                             %              from the curve below which the banking starts
 
 C_fuel = 0.0000003; % [s^2/m^2] --------coefficient for fuel consumption
 
 slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
 bankingON = 1; % 1 if banking ON, 0 for OFF
 
-load banking_indy;
-% curvature_test = -banking_indy;
-% curvature_test(find(curvature_test == 6.9)) = 0;
-% curvature_test(31394:32035) = linspace(9.2,0,32035-31394+1);
-% curvature_test(33431:34128) = linspace(0,9.2,34128-33431+1);
-% curvature_test = curvature_test/(268.89*9.2);   
+load banking_indy;  
 
 RefTrajectory_6;
  
