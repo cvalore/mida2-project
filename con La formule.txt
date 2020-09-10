@@ -8,7 +8,7 @@ N(s) = (l_f m V_x^2 + J_z k V_x)s^2 + (C_r V_x l_r + C_r l_f V_x + C_r k l_r^2 +
 \\\\
 D(s) = (J_z V_x^2 m)s^2 + (C_f J_z V_x + C_r J_z V_x + C_f V_x l_f^2 m + C_r V_x l_r^2 m)s + (C_f C_r l_f^2 + C_f C_r l_r^2 - C_f V_x^2 l_f m + C_r V_x^2 l_r m + 2 C_f C_r l_f l_r)
 
-
+Grhos = -(Vx^2*s + Vx^2*k)/(k*s^2);
 
 Ksched(Vx) = Gecg^-1(0) = (k*(m*Vx^2*(Cr*lr - Cf*lf) + Cf*Cr*(lf+lr)))/(Cf*Cr*Vx^2*k*(lf + lr))
 
