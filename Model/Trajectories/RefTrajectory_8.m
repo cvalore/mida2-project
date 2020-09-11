@@ -45,7 +45,7 @@ y_coord_fourthcurve = curveCenters(1,2) - radius_second_lane*sind(angles);
 %% velocity_profile
 
 stretch1 = 906;
-v1_start = 85;
+v1_start = 79;
 v1_end = 88;
 pace1 = (v1_end - v1_start)/stretch1*step_size;
 
@@ -58,7 +58,7 @@ pace2 = (v2_end - v2_start)/stretch2*step_size;
 
 stretch3 = 406;
 v3_start = v2_end;
-v3_end = 85;
+v3_end = 82;
 pace3 = (v3_end - v3_start)/stretch3*step_size;
 
 stretch4 = 207;
@@ -68,7 +68,7 @@ pace4 = (v4_end - v4_start)/stretch4*step_size;
 
 stretch5 = 207;
 v5_start = v4_end;
-v5_end = 88;
+v5_end = 79;
 pace5 = (v5_end - v5_start)/stretch5*step_size;
 
 v1 = v1_start:pace1:v1_end;

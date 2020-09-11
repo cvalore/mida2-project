@@ -36,3 +36,27 @@ Fuel -17%
 13 laps 666s, no slipstream
 
 16 laps 815s, slipstream
+
+
+---------------------------------------------------------------------------------------------------- 80m/s
+20 giri senza scia
+
+Tsim = 1037.023s -> 51.851s/lap
+
+V_max = 88m/s -> 80.2m/s
+
+Fy_max -25.34 % on rear
+Fy_max -16.80 % on front
+
+Fuel -57kg -> 1kg remaining
+---------------------------------------
+20 giri scia
+
+Tsim = 1034.789s -> 51.739s/lap
+
+V_max = 88m/s -> 80.6m/s
+
+Fy_max -23.55 % on rear
+Fy_max -15.75 % on front
+
+Fuel -49.9kg -> 8.1kg remaining

@@ -61,12 +61,22 @@ D2_85 = subs(Ds2);
 modelTF_85 = N85/(D1_85 * D2_85);
 modelTF_85_tf = tf([79227912225000 283421361600000 811512000000000], [3143655300*3 218970889197*3/5 42423333000*3 0 0], 'Name', 'vel 85 m/s');
 
+%% Vx 90
+Vx = 90;
+N90 = subs(Ns);
+D1_90 = subs(Ds1);
+D2_90 = subs(Ds2);
+
+modelTF_90 = N90/(D1_90 * D2_90);
+modelTF_90_tf = tf([93961247400000 316941206400000 909792000000000], [3524374800*3 231851529738*3/5 33414228000*3 0 0], 'Name', 'vel 90 m/s');
+
+
 %%
 figure(1)
 hold on
 legend
-vel = [75 80 85];
-models = [modelTF_75_tf modelTF_80_tf modelTF_85_tf];
+vel = [75 80 85 90];
+models = [modelTF_75_tf modelTF_80_tf modelTF_85_tf modelTF_90_tf];
 for i = 1:size(models, 2)
    bode(models(1,i));
 end
