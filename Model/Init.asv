@@ -64,10 +64,8 @@ l_r = 0.586; % [-]   --------load distrib over rear wheel
 Cf = 100000; % [..] --------Cornering stiffnes for linearization (front)
 Cr = 120000; % [..] --------Cornering stiffnes for linearization (rear)
 
-Cx_0 = 0.725; % [-] --------longitudinal drag coefficient non-slipstream
-Cz_0 = 0.778; % [-]  --------vertical (lift) drag coefficient non-slipstream
-Cx_1 = 0.616; % [-] --------longitudinal drag coefficient slipstream
-Cz_1 = 0.623; % [-]  --------vertical (lift) drag coefficient slipstream
+Cx_0 = 0.725; % [-] --------longitudinal drag coefficient
+Cz_ = 0.778; % [-]  --------vertical (lift) drag coefficient
 rho_0 = 1.225; % [kg/m^3]   --------air density non-slipstream
 % rho_1 = 1.041; % [kg/m^3]     --------air density slipstream
 Area = 1; % [m^2]   --------surface of vehicle on which the air goes through
