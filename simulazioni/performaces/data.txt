@@ -60,3 +60,28 @@ Fy_max -23.55 % on rear
 Fy_max -15.75 % on front
 
 Fuel -49.9kg -> 8.1kg remaining
+---------------------------------------
+10 giri con 10 giri senza
+
+Tsim = 1036.457 -> 51.851s/lap
+
+V_max = 88m/s -> 80.5m/s
+
+Fy_max -28.88 % on rear
+Fy_max -21.21 % on front
+
+Fuel -53.551 -> 4.45kg remaining
+---------------------------------------
+
+
+20 giri con senza scia
+
+
+Tsim = 1008.056s -> 50.403s/lap
+
+V_max = 88m/s -> 84.6m/s
+
+Fy_max -23.86 % on rear
+Fy_max -14.69 % on front
+
+

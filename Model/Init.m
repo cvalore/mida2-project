@@ -40,7 +40,8 @@ K_wear = 1.8*10^-17;   % [m^3 s^3 / kg^2] --------coefficient that determines th
 TyreContactAreaFront = 0.072137; % [m^2] --------area of contact between front tyre and asphalt
 TyreContactAreaRear = 0.082758; % [m^2] --------area of contact between rear tyre and asphalt
 
-K_wear_vel = 10^-4.7; %4.8
+K_wear_vel_0 = 10^-5.05; %4.8
+K_wear_vel_1 = 10^-5.25;
 %% Track parameters
 
 [roadS1, roadS2, roadS3, roadS4, curveRays, curveCenters, curveZ, zOffset, ...
@@ -67,7 +68,7 @@ Cr = 120000; % [..] --------Cornering stiffnes for linearization (rear)
 Cx_0 = 0.725; % [-] --------longitudinal drag coefficient non-slipstream
 Cz_0 = 0.778; % [-]  --------vertical (lift) drag coefficient non-slipstream
 Cx_1 = 0.616; % [-] --------longitudinal drag coefficient slipstream
-Cz_1 = 0.623; % [-]  --------vertical (lift) drag coefficient slipstream
+Cz_1 = 0.545; % [-]  --------vertical (lift) drag coefficient slipstream
 rho_0 = 1.225; % [kg/m^3]   --------air density non-slipstream
 % rho_1 = 1.041; % [kg/m^3]     --------air density slipstream
 Area = 1; % [m^2]   --------surface of vehicle on which the air goes through
