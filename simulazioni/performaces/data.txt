@@ -33,9 +33,9 @@ Fuel -17%
 ------------------------
 
 
-13 laps 666s, no slipstream
+12 laps 666s, no slipstream 14% wear on rear
 
-16 laps 815s, slipstream
+15 laps 815s, slipstream 16.5% wear on rear
 
 
 ---------------------------------------------------------------------------------------------------- 80m/s
