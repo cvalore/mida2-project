@@ -1,41 +1,7 @@
 la gara si compone di 20 giri in massimo 25 minuti
 
-supponiamo di fare pit stop per cambio ruote?
+- notare che con il consumo del carburante si riduce durante la gara, quindi anche la Fz e quindi l'ellisse si riduce
 
-scia solo funzione della distanza e non della velocità
-
-
-
-picco strano per delta diverso da 0
-
-velocita = 0 all inizio
-
-ANGOLI PICCOLISSIMI
-
-simulazione aggiuntiva dubbi
-
-chiedere il significato del grafico di wheel steering plot..
-perche ci sono angoli angoli di steering così alti
-
-se ha senso per noi tenere mu costante o dobbiamo farlo dipendere dalla Fz, soprattutto nella lateral
-
-inerzia
-
-tyre contact area
-
-
-0 fino a 7743 
-da 7744 fino a 11290 aumenta la pendenza
-da 11291 fino a 13336 diminuisce la pendenza (valore -6,9000)
-da 13337 fino a 15937 aumenta la pendenza (valore massimo -9.2)
-da 15938 fino a 17638 diminuisce 
-da 17639 fino a 27750 vale 0
-da 17640 fino a 31394 cresce (e vale per molto tempo 9.2)
-da 31394 fino a 33433 diminuisce (vale per molto tempo 6.9)
-da 33434 fino a 36478 cresce (vale per molto tempo 9.2)
-da 36479 fino a 37782 diminuisce 
-da 37783 fino alla fine vale 0
-
----------------------
+- far dipendere il profilo di velocità dalla wear delle ruote per non rendere instabile il veicolo
 
 	
