@@ -78,7 +78,7 @@ init_x_pos = -250; % [m]  --------initial x position
 init_y_pos = 0; % [m]  --------initial y position
 init_yaw = 0; % [rad]  --------initial yaw angle
 
-C_fuel = 2.2*10^-7; % [s^2/m^2] --------coefficient for fuel consumption
+C_fuel = 2.1*10^-7; % [s^2/m^2] --------coefficient for fuel consumption
 
 slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
 bankingON = 1; % 1 if banking ON, 0 for OFF
