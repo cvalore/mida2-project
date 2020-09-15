@@ -37,11 +37,21 @@ w2 = 1;         % [-]       --------wear param2
 
 %tyre wears param
 K_wear = 1.8*10^-17;   % [m^3 s^3 / kg^2] --------coefficient that determines the wear
+K_wear_less = 1.5*10^-17;
+K_wear_more = 2.1*10^-17;
+K_wear_set = [K_wear K_wear_less K_wear_more];
+
 TyreContactAreaFront = 0.072137; % [m^2] --------area of contact between front tyre and asphalt
 TyreContactAreaRear = 0.082758; % [m^2] --------area of contact between rear tyre and asphalt
 
-K_wear_vel_0 = 10^-5.05; %4.8
+K_wear_vel_0 = 10^-5.05;
+K_wear_vel_0_less = 10^-5.15;
+K_wear_vel_0_more = 10^-4.95;
+K_wear_vel_0_set = [K_wear_vel_0 K_wear_vel_0_less K_wear_vel_0_more];
+
 K_wear_vel_1 = 10^-5.25;
+
+wear_selector = 1;
 %% Track parameters
 
 [roadS1, roadS2, roadS3, roadS4, curveRays, curveCenters, curveZ, zOffset, ...
