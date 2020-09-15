@@ -1,7 +1,0 @@
-la gara si compone di 20 giri in massimo 25 minuti
-
-- notare che con il consumo del carburante si riduce durante la gara, quindi anche la Fz e quindi l'ellisse si riduce
-
-- far dipendere il profilo di velocità dalla wear delle ruote per non rendere instabile il veicolo
-
-	
