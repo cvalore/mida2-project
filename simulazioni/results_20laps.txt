@@ -1,0 +1,9 @@
+From the results it can be seen that
+
+	Total race time is reduced by around 9 seconds, so an average of 0.5 seconds per lap that couldbe significant in a race
+	
+	Peak velocity increases by the 2%, from 84.2 [m/s] to 85.7 [m/s], this is due to the fact thatsince tyres wear increasing is slower, higher velocities can be handled for more time
+	
+	Maximum lateral forces reduction decreases by 2% on the rear wheel and by 1% on the frontone
+	
+	Fuel  consumption  loss  is  significantly  less,  0.09  [kg]  of  fuel  remaining  in  the  case  of  no-slipstreaming and 6.29 [kg] while slipstreaming, around 6 [kg] save

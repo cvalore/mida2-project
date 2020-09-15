@@ -1,0 +1,15 @@
+Simulation with loss higher by 5%
+	–Loss on rear ellipse 29%
+	–Race time 1029.7 [s]
+	–Lap time 51.485 [s]
+	
+Reference simulation
+	–Loss on rear ellipse 24.5%
+	–Race time 1019.510 [s]
+	–Lap time 50.976 [s]
+Simulation with loss lower by 5%
+	–Loss on rear ellipse 20.2%
+	–Race time 1010.835 [s]
+	–Lap time 50.542 [s]
+	
+From the results it can be seen that an error on estimation of tyre wear of around 5% has animpact  of  less  than  1%  on  the  lap  time.   So,  we  can  conclude  that  having  a  small  error  on  theestimation with respect to the real value may not be so critical
