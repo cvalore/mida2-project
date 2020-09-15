@@ -93,6 +93,10 @@ C_fuel = 2.1*10^-7; % [s^2/m^2] --------coefficient for fuel consumption
 slipstreamON = 0; % 1 if slipstream ON, 0 for OFF
 bankingON = 1; % 1 if banking ON, 0 for OFF
 
+slipstreamLaps = -1; %if counter lap less then this -> slipstream off
+
+stressTestSelector = -1; % -1 not stress test, 1 stress test
+
 load banking_indy;  
 
 RefTrajectory_8;
