@@ -1,0 +1,26 @@
+20 giri senza scia
+
+
+Tsim = 1010.495 s -> 50,525 s/lap
+
+V_max = 88 m/s -> 84.2 m/s
+
+Fy_max -24.05 % on rear
+Fy_max -14.92 % on front
+
+Fuel = -57.91 kg -> 0.09 kg remaining
+
+--------------------------------------------------------------
+
+
+20 giri con scia
+
+
+Tsim = 1001.475 s -> 50,074 s/lap
+
+V_max = 88 m/s -> 85.7 m/s
+
+Fy_max -22.07 % on rear
+Fy_max -13.82 % on front
+
+Fuel = -51.71 kg -> 6.29 kg remaining
